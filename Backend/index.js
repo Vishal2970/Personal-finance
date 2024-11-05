@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const ConnectDB = require("./DBConnection/connectToDB");
 const authRoute = require("./Routes/authRoute");
+const pageCheck = require("./Routes/pageRoute");
 
 const corsOptions = {
   origin: "http://localhost:5000",
@@ -12,7 +13,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
-app.use("/api/route", authRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/page", pageCheck);
 
 const PORT = 5000;
 
