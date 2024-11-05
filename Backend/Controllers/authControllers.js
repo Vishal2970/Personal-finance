@@ -60,7 +60,7 @@ const login = async (req, res) => {
     });
   }
 
-  console.log(`Retrieved User: ${JSON.stringify(userExist)}`); // Log the retrieved user
+//   console.log(`Retrieved User: ${JSON.stringify(userExist)}`);
   // const hashedPassword = await bcrypt.hash(password, 10);
   const userdetails = await userExist.passwordMatch(password);
   try {

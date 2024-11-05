@@ -35,22 +35,24 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.generateToken = async function () {
   try {
-    const token=await new Promise((resolve,rejected)=>{jwt.sign(
-      {
-        _id: this._id,
-        userName: this.userName,
-        emailID: this.emailID,
-        isAdmin: this.isAdmin,
-      },
-      "SecretKey",
-      {
-        expiresIn: "1hr",
-      },
-      (err,token)=>{
-        if(err) rejected(err);
-        else resolve(token);
-      }
-    )})
+    const token = await new Promise((resolve, rejected) => {
+      jwt.sign(
+        {
+          _id: this._id,
+          userName: this.userName,
+          emailID: this.emailID,
+          isAdmin: this.isAdmin,
+        },
+        process.env.SecretKey,
+        {
+          expiresIn: "1hr",
+        },
+        (err, token) => {
+          if (err) rejected(err);
+          else resolve(token);
+        }
+      );
+    });
     return token;
   } catch (error) {
     console.log(error);

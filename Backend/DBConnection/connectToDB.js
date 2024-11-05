@@ -1,7 +1,7 @@
 require("dotenv");
 const mongoose = require("mongoose");
 
-const URI="mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority";
+const URI=process.env.URI;
 const ConnectDB = async () => {
   try {
     await mongoose.connect(URI).then(console.log("Connection Successfull"));

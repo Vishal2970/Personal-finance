@@ -3,6 +3,8 @@ const router = express.Router();
 const controller = require("../Controllers/pageController");
 const middleware = require('../Middleware/checkPermission')
 
-router.route("/").get(middleware.isAdmin,controller.pageCheck);
+router.route("/").get(middleware.isTypeOfUser,(req,res)=>{
+    req.user.isAdmin?controller.pageCheck(req,res):controller.pageCheckNormal(req,res);
+})
 
 module.exports = router;

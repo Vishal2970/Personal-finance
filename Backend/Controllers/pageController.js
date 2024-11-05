@@ -3,4 +3,14 @@ const pageCheck = async (req, res) => {
     message: "Page is checked for admin successfully",
   });
 };
-module.exports = { pageCheck };
+
+const pageCheckNormal = async (req, res) => {
+    return res.status(200).json({
+      message: "Page is checked for Normal successfully",
+    });
+  };
+
+
+
+
+module.exports = { pageCheck,pageCheckNormal };
