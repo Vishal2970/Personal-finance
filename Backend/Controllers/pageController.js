@@ -15,14 +15,23 @@ const pageCheckNormal = async (req, res) => {
 
 //adding inserting
 const insertingAmount = async (req, res) => {
-  const amountAdded = req.body.Amount;
+  let amountAdded = req.body.Amount;
   const emailID = req.user.emailID;
-  // console.log("Amount ", amountAdded);
+  const Withdrawal = req.body.Withdrawal;
+  const nameOfTransaction = req.body.nameOfTransaction;
+  
   // console.log("emailID ", emailID);
+  if (Withdrawal) {
+    console.log("check this Withdrawal in frontend");
+    amountAdded = (-Math.abs(amountAdded)).toString();
+  }
 
+  console.log("Amount after ", amountAdded);
   const inserting = new amount({
     amountAdded,
     emailID,
+    Withdrawal,
+    nameOfTransaction,
   });
   try {
     await inserting.save();
@@ -45,7 +54,6 @@ const addAmount = async (req, res) => {
     }
     let totalAmount = 0;
     for (let i = 0; i < amountFound.length; i++) {
-      // console.log("amountFound.length", amountFound[i].amountAdded);
       totalAmount += parseInt(amountFound[i].amountAdded);
     }
 
@@ -61,15 +69,12 @@ const addAmount = async (req, res) => {
 
 const listOfTransactionAdmin = async (req, res) => {
   try {
-    const amountList = await amount.find().sort({emailID:1});
+    const amountList = await amount.find().sort({ emailID: 1 });
     if (amountList.length > 0)
       return res
         .status(200)
         .json({ message: "list fetched successfully", amountList });
-    else
-      return res
-        .status(200)
-        .json({ message: "No data found", amountList });
+    else return res.status(200).json({ message: "No data found", amountList });
   } catch (error) {
     console.log(error);
   }
@@ -78,15 +83,12 @@ const listOfTransactionAdmin = async (req, res) => {
 const listOfTransactionNormal = async (req, res) => {
   const emailID = req.user.emailID;
   try {
-    const amountList = await amount.find({ emailID }).sort({amountAdded:1});
+    const amountList = await amount.find({ emailID }).sort({ amountAdded: 1 });
     if (amountList.length > 0)
       return res
         .status(200)
         .json({ message: "list fetched successfully", amountList });
-    else
-      return res
-        .status(200)
-        .json({ message: "No data found", amountList });
+    else return res.status(200).json({ message: "No data found", amountList });
   } catch (error) {
     console.log(error);
   }

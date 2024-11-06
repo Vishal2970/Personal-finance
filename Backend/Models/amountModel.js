@@ -17,6 +17,15 @@ const amountModel = new mongoose.Schema({
         return now.toISOString().split("T")[0];
     },
   },
+  Withdrawal:{
+    type:Boolean,
+    require:true,
+  },
+  nameOfTransaction:{
+    type:String,
+    require:true,
+    default:"Random",
+  }
 });
 
 const amount = new mongoose.model("Transaction", amountModel);
