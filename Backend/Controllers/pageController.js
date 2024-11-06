@@ -17,8 +17,8 @@ const pageCheckNormal = async (req, res) => {
 const insertingAmount = async (req, res) => {
   const amountAdded = req.body.Amount;
   const emailID = req.user.emailID;
-  console.log("Amount ", amountAdded);
-  console.log("emailID ", emailID);
+  // console.log("Amount ", amountAdded);
+  // console.log("emailID ", emailID);
 
   const inserting = new amount({
     amountAdded,
@@ -45,20 +45,58 @@ const addAmount = async (req, res) => {
     }
     let totalAmount = 0;
     for (let i = 0; i < amountFound.length; i++) {
-      console.log("amountFound.length", amountFound[i].amountAdded);
+      // console.log("amountFound.length", amountFound[i].amountAdded);
       totalAmount += parseInt(amountFound[i].amountAdded);
     }
 
-    return res
-      .status(200)
-      .json({
-        message: "Fetched amounts successfully",
-        totalAmount: Math.floor(totalAmount),
-      });
+    return res.status(200).json({
+      message: "Fetched amounts successfully",
+      totalAmount: Math.floor(totalAmount),
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Error fetching data" });
   }
 };
 
-module.exports = { pageCheck, pageCheckNormal, addAmount, insertingAmount };
+const listOfTransactionAdmin = async (req, res) => {
+  try {
+    const amountList = await amount.find().sort({emailID:1});
+    if (amountList.length > 0)
+      return res
+        .status(200)
+        .json({ message: "list fetched successfully", amountList });
+    else
+      return res
+        .status(200)
+        .json({ message: "No data found", amountList });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const listOfTransactionNormal = async (req, res) => {
+  const emailID = req.user.emailID;
+  try {
+    const amountList = await amount.find({ emailID }).sort({amountAdded:1});
+    if (amountList.length > 0)
+      return res
+        .status(200)
+        .json({ message: "list fetched successfully", amountList });
+    else
+      return res
+        .status(200)
+        .json({ message: "No data found", amountList });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = {
+  pageCheck,
+  pageCheckNormal,
+  addAmount,
+  insertingAmount,
+  listOfTransactionAdmin,
+  listOfTransactionNormal,
+};

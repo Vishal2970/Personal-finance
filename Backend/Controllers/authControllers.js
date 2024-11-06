@@ -30,7 +30,7 @@ const register = async (req, res) => {
     userName,
     mobileNumber,
     emailID,
-    password: hashedPassword,
+    password,
   });
 
   // Save the new user
@@ -45,9 +45,9 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const { userInput, password } = req.body;
-  console.log(
-    `userName ${userInput},emailID ${userInput},password ${password}`
-  );
+  // console.log(
+  //   `userName ${userInput},emailID ${userInput},password ${password}`
+  // );
   if (userInput === undefined) {
     return res.status(400).json({ message: "Please user Name or email" });
   }
