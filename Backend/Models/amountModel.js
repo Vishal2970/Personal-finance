@@ -13,18 +13,18 @@ const amountModel = new mongoose.Schema({
   date: {
     type: String,
     default: () => {
-        const now = new Date();
-        return now.toISOString().split("T")[0];
+      const now = new Date();
+      return now.toISOString().split("T")[0];
     },
   },
-  Withdrawal:{
-    type:Boolean,
-    require:true,
+  Withdrawal: {
+    type: Boolean,
+    require: true,
   },
-  nameOfTransaction:{
-    type:String,
-    require:true,
-  }
+  nameOfTransaction: {
+    type: String,
+    require: true,
+  },
 });
 
 const amount = new mongoose.model("Transaction", amountModel);

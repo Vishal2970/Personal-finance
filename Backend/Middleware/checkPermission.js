@@ -6,7 +6,7 @@ const isAdmin = async (req, res, next) => {
 
   if (!token) return res.status(403).send("Access denied");
   try {
-    const decoded = jwt.verify(token, process.env.SecretKey,);
+    const decoded = jwt.verify(token, process.env.SecretKey);
     if (!decoded.isAdmin) {
       return res.status(403).send("Access denied.");
     }
@@ -18,15 +18,15 @@ const isAdmin = async (req, res, next) => {
 };
 
 const isTypeOfUser = async (req, res, next) => {
-    const token = req.headers["authorization"]?.split(" ")[0];
-  
-    if (!token) return res.status(403).send("Access denied");
-    try {
-      const decoded = jwt.verify(token, process.env.SecretKey,);
-      req.user = decoded;
-      next();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-module.exports = { isAdmin ,isTypeOfUser};
+  const token = req.headers["authorization"]?.split(" ")[0];
+
+  if (!token) return res.status(403).send("Access denied");
+  try {
+    const decoded = jwt.verify(token, process.env.SecretKey);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports = { isAdmin, isTypeOfUser };

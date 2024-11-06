@@ -60,12 +60,12 @@ const login = async (req, res) => {
     });
   }
 
-//   console.log(`Retrieved User: ${JSON.stringify(userExist)}`);
+  //   console.log(`Retrieved User: ${JSON.stringify(userExist)}`);
   // const hashedPassword = await bcrypt.hash(password, 10);
   const userdetails = await userExist.passwordMatch(password);
   try {
     if (userdetails) {
-      res.status(200).json({ token: await userExist.generateToken()});
+      res.status(200).json({ token: await userExist.generateToken() });
     }
   } catch (error) {
     console.log(error);
