@@ -13,4 +13,6 @@ router.route("/addamount").get(middleware.isTypeOfUser,controller.addAmount);
 router.route("/list_of_transaction").get(middleware.isTypeOfUser,controller.listOfTransactionAdmin)
 
 router.route("/deleteOne").delete(middleware.isTypeOfUser,controller.deleteParticularEntry);
+
+router.route("/deleteAll").delete(middleware.isTypeOfUser,controller.deleteAllforNormalOnly);
 module.exports = router;

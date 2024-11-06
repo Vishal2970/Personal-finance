@@ -89,15 +89,24 @@ const listOfTransactionAdmin = async (req, res) => {
 const deleteParticularEntry = async (req, res) => {
   const emailID = req.user.emailID;
   const id = req.body.id;
-  console.log(id);
-  console.log(emailID);
-  
+
   try {
-    const deleted = req.user.isAdmin? await amount.deleteOne({ _id: id }): await amount.deleteOne({ _id: id ,emailID:emailID});
-    if (deleted.deletedCount === 0) {
+    const deleted = req.user.isAdmin? await amount.deleteOne({ _id: id }): await amount.deleteOne({ _id: id, emailID: emailID });
+      if (deleted.deletedCount === 0) {
       return res.status(404).json({ message: "Entry not found" });
     }
-    return res.status(200).json({ message: 'Entry deleted successfully' });
+    return res.status(200).json({ message: "Entry deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteAllforNormalOnly = async (req, res) => {
+  const emailID = req.user.emailID;
+  try {
+    const deleteAll=req.user.isAdmin?res.status(404).json({ message: "Not Allowed to delete from here" }): await amount.deleteMany({emailID});
+    console.log(deleteAll);
+    return res.status(200).json({ message: "All Entry deleted successfully" });
   } catch (error) {
     console.log(error);
   }
@@ -110,4 +119,5 @@ module.exports = {
   insertingAmount,
   listOfTransactionAdmin,
   deleteParticularEntry,
+  deleteAllforNormalOnly,
 };
