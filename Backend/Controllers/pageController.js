@@ -19,7 +19,7 @@ const insertingAmount = async (req, res) => {
   const emailID = req.user.emailID;
   const Withdrawal = req.body.Withdrawal;
   let nameOfTransaction = req.body.nameOfTransaction;
-  
+
   // console.log("emailID ", emailID);
   if (Withdrawal) {
     console.log("check this Withdrawal in frontend");
@@ -27,8 +27,8 @@ const insertingAmount = async (req, res) => {
   }
 
   console.log("Amount after ", amountAdded);
-  if(nameOfTransaction.length<1){
-    nameOfTransaction="Random Entry";
+  if (nameOfTransaction.length < 1) {
+    nameOfTransaction = "Random Entry";
   }
   const inserting = new amount({
     amountAdded,
@@ -73,12 +73,31 @@ const addAmount = async (req, res) => {
 const listOfTransactionAdmin = async (req, res) => {
   const emailID = req.user.emailID;
   try {
-    const amountList = req.user.isAdmin?await amount.find().sort({ emailID: 1 }):await amount.find({ emailID }).sort({ amountAdded: 1 });
+    const amountList = req.user.isAdmin
+      ? await amount.find().sort({ emailID: 1 })
+      : await amount.find({ emailID }).sort({ amountAdded: 1 });
     if (amountList.length > 0)
       return res
         .status(200)
         .json({ message: "list fetched successfully", amountList });
     else return res.status(200).json({ message: "No data found", amountList });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteParticularEntry = async (req, res) => {
+  const emailID = req.user.emailID;
+  const id = req.body.id;
+  console.log(id);
+  console.log(emailID);
+  
+  try {
+    const deleted = req.user.isAdmin? await amount.deleteOne({ _id: id }): await amount.deleteOne({ _id: id ,emailID:emailID});
+    if (deleted.deletedCount === 0) {
+      return res.status(404).json({ message: "Entry not found" });
+    }
+    return res.status(200).json({ message: 'Entry deleted successfully' });
   } catch (error) {
     console.log(error);
   }
@@ -90,4 +109,5 @@ module.exports = {
   addAmount,
   insertingAmount,
   listOfTransactionAdmin,
+  deleteParticularEntry,
 };
