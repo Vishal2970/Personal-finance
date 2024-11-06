@@ -68,22 +68,9 @@ const addAmount = async (req, res) => {
 };
 
 const listOfTransactionAdmin = async (req, res) => {
-  try {
-    const amountList = await amount.find().sort({ emailID: 1 });
-    if (amountList.length > 0)
-      return res
-        .status(200)
-        .json({ message: "list fetched successfully", amountList });
-    else return res.status(200).json({ message: "No data found", amountList });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const listOfTransactionNormal = async (req, res) => {
   const emailID = req.user.emailID;
   try {
-    const amountList = await amount.find({ emailID }).sort({ amountAdded: 1 });
+    const amountList = req.user.isAdmin?await amount.find().sort({ emailID: 1 }):await amount.find({ emailID }).sort({ amountAdded: 1 });
     if (amountList.length > 0)
       return res
         .status(200)
@@ -100,5 +87,4 @@ module.exports = {
   addAmount,
   insertingAmount,
   listOfTransactionAdmin,
-  listOfTransactionNormal,
 };

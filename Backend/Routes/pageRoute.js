@@ -10,9 +10,7 @@ router.route("/insertamount").post(middleware.isTypeOfUser,controller.insertingA
 
 router.route("/addamount").get(middleware.isTypeOfUser,controller.addAmount);
 
-router.route("/list_of_transaction").get(middleware.isTypeOfUser,(req,res)=>{
-    req.user.isAdmin?controller.listOfTransactionAdmin(req,res):controller.listOfTransactionNormal(req,res);
-})
+router.route("/list_of_transaction").get(middleware.isTypeOfUser,controller.listOfTransactionAdmin)
 
 
 module.exports = router;
