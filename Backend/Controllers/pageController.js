@@ -18,7 +18,7 @@ const insertingAmount = async (req, res) => {
   let amountAdded = req.body.Amount;
   const emailID = req.user.emailID;
   const Withdrawal = req.body.Withdrawal;
-  const nameOfTransaction = req.body.nameOfTransaction;
+  let nameOfTransaction = req.body.nameOfTransaction;
   
   // console.log("emailID ", emailID);
   if (Withdrawal) {
@@ -27,6 +27,9 @@ const insertingAmount = async (req, res) => {
   }
 
   console.log("Amount after ", amountAdded);
+  if(nameOfTransaction.length<1){
+    nameOfTransaction="Random Entry";
+  }
   const inserting = new amount({
     amountAdded,
     emailID,

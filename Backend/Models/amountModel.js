@@ -24,7 +24,6 @@ const amountModel = new mongoose.Schema({
   nameOfTransaction:{
     type:String,
     require:true,
-    default:"Random",
   }
 });
 
