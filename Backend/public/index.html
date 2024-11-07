@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page</title>
+    <style>
+      /* here started */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        max-width: 400px;
+        border-radius: 10px;
+      }
+      input {
+        margin-bottom: 10px;
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #line {
+        margin: 10px;
+      }
+      #line a {
+        color: #b93774; /* Sets the link color */
+        text-decoration: none; /* Removes the underline from the link */
+      }
+
+      #line a:hover {
+        text-decoration: none; /* Ensures no underline on hover */
+        color: #69d34f; /* Changes link color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form id="registrationForm">
+      <input type="text" id="userName" placeholder="User Name" required />
+      <input
+        type="text"
+        id="mobileNumber"
+        placeholder="Mobile Number"
+        required
+      />
+      <input type="email" id="emailID" placeholder="Email ID" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <div id="responseMessage"></div>
+    <div id="line">
+      If already registered then <a href="login.html">Login</a>
+    </div>
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          const userName = document.getElementById("userName").value;
+          const mobileNumber = document.getElementById("mobileNumber").value;
+          const emailID = document.getElementById("emailID").value;
+          const password = document.getElementById("password").value;
+
+          // Create the data object
+          const userData = {
+            userName: userName,
+            mobileNumber: mobileNumber,
+            emailID: emailID,
+            password: password,
+          };
+
+          // Send the data to the backend
+          fetch("http://localhost:5000/api/auth/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              document.getElementById("responseMessage").innerText =
+                data.message;
+
+              document.getElementById("registrationForm").reset();
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              document.getElementById("responseMessage").innerText =
+                "An error occurred. Please try again.";
+            });
+        });
+    </script>
+  </body>
+</html>

@@ -32,7 +32,7 @@ const register = async (req, res) => {
     emailID,
     password,
   });
-
+  console.log(newUser);
   // Save the new user
   try {
     await newUser.save();
