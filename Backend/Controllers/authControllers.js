@@ -32,7 +32,6 @@ const register = async (req, res) => {
     emailID,
     password,
   });
-  console.log(newUser);
   // Save the new user
   try {
     await newUser.save();
@@ -45,30 +44,29 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const { userInput, password } = req.body;
-  // console.log(
-  //   `userName ${userInput},emailID ${userInput},password ${password}`
-  // );
+  // console.log(`userName ${userInput},emailID ${userInput},password ${password}`);
   if (userInput === undefined) {
-    return res.status(400).json({ message: "Please user Name or email" });
+    return res.status(400).json({ message: "Please enter user Name or email" });
   }
-  const userExist = await user.findOne({
-    $or: [{ emailID: userInput }, { userName: userInput }],
-  });
+  const userExist = await user.findOne({$or: [{ emailID: userInput }, { userName: userInput }],});
+
   if (!userExist) {
     return res.status(400).json({
-      message: "User with this email or mobile number already exists",
+      message: "User with this email or mobile number not exists",
     });
   }
 
-  //   console.log(`Retrieved User: ${JSON.stringify(userExist)}`);
+  // console.log(`Retrieved User: ${JSON.stringify(userExist)}`);
   // const hashedPassword = await bcrypt.hash(password, 10);
   const userdetails = await userExist.passwordMatch(password);
   try {
     if (userdetails) {
-      res.status(200).json({ token: await userExist.generateToken() });
+      // console.log("userdetails",userdetails)
+      return res.status(200).json({ message:`Login successfull ${userExist.userName}`,token: await userExist.generateToken() });
     }
   } catch (error) {
     console.log(error);
+    return error;
   }
 };
 

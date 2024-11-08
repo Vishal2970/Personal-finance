@@ -8,12 +8,11 @@ const authRoute = require("./Routes/authRoute");
 const pageCheck = require("./Routes/pageRoute");
 
 const corsOptions = {
-  origin: "http://localhost:5000",
-  method: "GET,POST,PUT,DELETE,PATCH,HEAD",
+  origin: ["http://localhost:5500", "http://127.0.0.1:5500"],
+  methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
   credentials: true,
 };
 app.use(cors(corsOptions));
-
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 

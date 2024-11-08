@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Page</title>
+    <title>Login Page</title>
     <style>
       html,
       body {
@@ -75,6 +75,7 @@
         text-decoration: none; /* Ensures no underline on hover */
         color: #69d34f; /* Changes link color on hover */
       }
+
       #responseMessage {
         display: none; /* Initially hidden */
         padding: 10px;
@@ -93,52 +94,46 @@
         background-color: #dc3545; /* Red for error */
         border-color: #dc3545;
       }
-
-
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Register</h1>
-
-      <form id="registrationForm">
-        <input type="text" id="userName" placeholder="User  Name" minlength="3" maxlength="20" required />
-        <input type="text" id="mobileNumber" placeholder="Mobile Number" minlength="10"
+      <h1>Login</h1>
+      <form id="loginForm">
+        <input
+          type="text"
+          id="userName"
+          placeholder="User Name/Email ID"
+          required
         />
-        <input type="email" id="emailID" placeholder="Email ID" required />
-        <input type="password" id="password" placeholder="Password" minlength="8" required />
+        <input type="password" id="password" placeholder="Password" required />
         <div class="button-box">
           <!-- New container for buttons -->
-          <button type="submit">Register</button>
+          <button type="submit">Login</button>
         </div>
       </form>
-      <div id="responseMessage"></div>
-
+      <div id="responseMessage" style="display: none"></div>
       <div id="line">
-        If already registered then <a href="login.html"> Login</a>
+        If not registered yet then <a href="index.html"> Register</a>
       </div>
     </div>
     <script>
       document
-        .getElementById("registrationForm")
+        .getElementById("loginForm")
         .addEventListener("submit", function (event) {
           event.preventDefault(); // Prevent the default form submission
 
           const userName = document.getElementById("userName").value;
-          const mobileNumber = document.getElementById("mobileNumber").value;
-          const emailID = document.getElementById("emailID").value;
           const password = document.getElementById("password").value;
 
           // Create the data object
           const userData = {
-            userName: userName,
-            mobileNumber: mobileNumber,
-            emailID: emailID,
+            userInput: userName,
             password: password,
           };
 
           // Send the data to the backend
-          fetch("http://localhost:5000/api/auth/register", {
+          fetch("http://localhost:5000/api/auth/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -155,9 +150,10 @@
               document.getElementById("responseMessage").innerText =
                 data.message;
               showAlert(data.message, "success");
-              document.getElementById("registrationForm").reset();
+              document.getElementById("loginForm").reset();
+              // Redirect to homepage if login is successful
               setTimeout(() => {
-                window.location.href = "login.html";
+                window.location.href = "index.html";
               }, 1000);
             })
             .catch((error) => {
