@@ -18,8 +18,7 @@ const isAdmin = async (req, res, next) => {
 };
 
 const isTypeOfUser = async (req, res, next) => {
-  const token = req.headers["authorization"]?.split(" ")[0];
-
+  const token = req.headers["authorization"]?.split(" ")[0];  
   if (!token) return res.status(403).send("Access denied");
   try {
     const decoded = jwt.verify(token, process.env.SecretKey);

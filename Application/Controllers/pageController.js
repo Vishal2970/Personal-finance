@@ -15,10 +15,12 @@ const pageCheckNormal = async (req, res) => {
 
 //adding inserting
 const insertingAmount = async (req, res) => {
-  let amountAdded = req.body.Amount;
   const emailID = req.user.emailID;
-  const Withdrawal = req.body.Withdrawal;
+
+  let amountAdded = req.body.Amount;
   let nameOfTransaction = req.body.nameOfTransaction;
+  const Withdrawal = req.body.Withdrawal;
+
 
   // console.log("emailID ", emailID);
   if (Withdrawal) {

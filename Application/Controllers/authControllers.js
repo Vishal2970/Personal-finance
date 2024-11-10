@@ -92,7 +92,7 @@ const register = async (req, res) => {
     await newUser.save();
 
     // Send verification email
-    sendVerificationEmail(emailID, verificationToken);
+    sendVerificationEmail(emailID, verificationToken,fullName);
 
     res.status(201).json({ message: "User created successfully. Please verify your email." });
   } catch (error) {
@@ -102,7 +102,7 @@ const register = async (req, res) => {
 };
 
 // Helper function to send the verification email
-const sendVerificationEmail = (email, token) => {
+const sendVerificationEmail = (email, token,fullName) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -115,7 +115,8 @@ const sendVerificationEmail = (email, token) => {
     from: process.env.GMAIL_USER,
     to: email,
     subject: 'Verify Your Email',
-    html: `<p>Please verify your email by clicking on the link below:</p>
+    html: `<p>Hi ${fullName},
+    <p>Please verify your email by clicking on the link below:</p>
            <a href="http://localhost:5000/api/auth/verify-email?token=${token}">Verify Email</a>`,
   };
 

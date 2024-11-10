@@ -1,178 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Page</title>
-    <style>
-      html,
-      body {
-        height: 100%; /* Ensures the body takes the full height of the viewport */
-        margin: 0; /* Remove default margin */
-        display: flex; /* Use flexbox layout */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-      }
-      h1 {
-        height: 100%; /* Ensures the body takes the full height of the viewport */
-        margin: 0; /* Remove default margin */
-        display: flex; /* Use flexbox layout */
-        justify-content: center; /* Center horizontally */
-        align-items: center;
-        margin: 10px;
-      }
-      .container {
-        width: 100%; /* Ensure the container takes full width of the body */
-        max-width: 400px; /* Set a maximum width for the container */
-        padding: 20px; /* Add padding inside the container */
-        border: 1px solid #ccc; /* Optional border */
-        border-radius: 10px; /* Optional border radius */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-        background-color: white; /* Optional background color */
-      }
 
-      .button-box {
-        display: flex; /* Use flexbox for layout */
-        justify-content: center; /* Center buttons horizontally */
-        margin-top: 20px; /* Space above the button box */
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      /* Ensures the body takes the full height of the viewport */
+      margin: 0;
+      /* Remove default margin */
+      display: flex;
+      /* Use flexbox layout */
+      justify-content: center;
+      /* Center horizontally */
+      align-items: center;
+      /* Center vertically */
+    }
 
-      input {
-        margin-bottom: 10px;
-        width: 90%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
+    h1 {
+      height: 100%;
+      /* Ensures the body takes the full height of the viewport */
+      margin: 0;
+      /* Remove default margin */
+      display: flex;
+      /* Use flexbox layout */
+      justify-content: center;
+      /* Center horizontally */
+      align-items: center;
+      margin: 10px;
+    }
 
-      button {
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+    .container {
+      width: 100%;
+      /* Ensure the container takes full width of the body */
+      max-width: 400px;
+      /* Set a maximum width for the container */
+      padding: 20px;
+      /* Add padding inside the container */
+      border: 1px solid #ccc;
+      /* Optional border */
+      border-radius: 10px;
+      /* Optional border radius */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      /* Optional shadow for better visibility */
+      background-color: white;
+      /* Optional background color */
+    }
 
-      button:hover {
-        background-color: #0056b3;
-      }
+    .button-box {
+      display: flex;
+      /* Use flexbox for layout */
+      justify-content: center;
+      /* Center buttons horizontally */
+      margin-top: 20px;
+      /* Space above the button box */
+    }
 
-      #line {
-        margin: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    input {
+      margin-bottom: 10px;
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-      #line a {
-        margin-left: 5px;
-        color: #b93774; /* Sets the link color */
-        text-decoration: none; /* Removes the underline from the link */
-      }
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-      #line a:hover {
-        text-decoration: none; /* Ensures no underline on hover */
-        color: #69d34f; /* Changes link color on hover */
-      }
+    button:hover {
+      background-color: #0056b3;
+    }
 
-      #responseMessage {
-        display: none; /* Initially hidden */
-        padding: 10px;
-        margin-top: 10px;
-        border: 1px solid transparent;
-        border-radius: 5px;
-        color: white;
-      }
+    #line {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .success {
-        background-color: #28a745; /* Green for success */
-        border-color: #28a745;
-      }
+    #line a {
+      margin-left: 5px;
+      color: #b93774;
+      /* Sets the link color */
+      text-decoration: none;
+      /* Removes the underline from the link */
+    }
 
-      .error {
-        background-color: #dc3545; /* Red for error */
-        border-color: #dc3545;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Login</h1>
-      <form id="loginForm">
-        <input
-          type="text"
-          id="userName"
-          placeholder="User Name/Email ID"
-          required
-        />
-        <input type="password" id="password" placeholder="Password" required />
-        <div class="button-box">
-          <!-- New container for buttons -->
-          <button type="submit">Login</button>
-        </div>
-      </form>
-      <div id="responseMessage" style="display: none"></div>
-      <div id="line">
-        If not registered yet then <a href="index.html"> Register</a>
+    #line a:hover {
+      text-decoration: none;
+      /* Ensures no underline on hover */
+      color: #69d34f;
+      /* Changes link color on hover */
+    }
+
+    #responseMessage {
+      display: none;
+      /* Initially hidden */
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      color: white;
+    }
+
+    .success {
+      background-color: #28a745;
+      /* Green for success */
+      border-color: #28a745;
+    }
+
+    .error {
+      background-color: #dc3545;
+      /* Red for error */
+      border-color: #dc3545;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <input type="text" id="userName" placeholder="User Name/Email ID" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <div class="button-box">
+        <!-- New container for buttons -->
+        <button type="submit">Login</button>
       </div>
+    </form>
+    <div id="responseMessage" style="display: none"></div>
+    <div id="line">
+      If not registered yet then <a href="index.html"> Register</a>
     </div>
-    <script>
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent the default form submission
+  </div>
+  <script>
+    document
+      .getElementById("loginForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
 
-          const userName = document.getElementById("userName").value;
-          const password = document.getElementById("password").value;
+        const userName = document.getElementById("userName").value;
+        const password = document.getElementById("password").value;
 
-          // Create the data object
-          const userData = {
-            userInput: userName,
-            password: password,
-          };
+        // Create the data object
+        const userData = {
+          userInput: userName,
+          password: password,
+        };
 
-          // Send the data to the backend
-          fetch("http://localhost:5000/api/auth/login", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
+        // Send the data to the backend
+        fetch("http://localhost:5000/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("network response was not ok");
+            }
+            return response.json();
           })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("network response was not ok");
-              }
-              return response.json();
-            })
-            .then((data) => {
+          .then((data) => {
+            if (data.token) {
               document.getElementById("responseMessage").innerText =
                 data.message;
               showAlert(data.message, "success");
               document.getElementById("loginForm").reset();
+
+              // Store the token in sessionStorage
+              sessionStorage.setItem("authToken", data.token);
+
               // Redirect to homepage if login is successful
               setTimeout(() => {
-                window.location.href = "index.html";
+                window.location.href = "homepage.html";
               }, 1000);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              document.getElementById("responseMessage").innerText =
-                "An error occurred. Please try again.";
-            });
-        });
-      function showAlert(message, type) {
-        const alertBox = document.getElementById("responseMessage");
-        alertBox.innerText = message;
-        alertBox.className = type; // Set the class for styling
-        alertBox.style.display = "block"; // Show the alert
+            } else {
+              showAlert(data.message, "error");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById("responseMessage").innerText =
+              "An error occurred. Please try again.";
+          });
+      });
+    function showAlert(message, type) {
+      const alertBox = document.getElementById("responseMessage");
+      alertBox.innerText = message;
+      alertBox.className = type; // Set the class for styling
+      alertBox.style.display = "block"; // Show the alert
 
-        // Automatically hide the alert after 3 seconds
-        setTimeout(() => {
-          alertBox.style.display = "none";
-        }, 3000);
-      }
-    </script>
-  </body>
+      // Automatically hide the alert after 3 seconds
+      setTimeout(() => {
+        alertBox.style.display = "none";
+      }, 3000);
+    }
+  </script>
+</body>
+
 </html>
