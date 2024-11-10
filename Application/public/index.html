@@ -102,9 +102,9 @@
       <h1>Register</h1>
 
       <form id="registrationForm">
-        <input type="text" id="userName" placeholder="User  Name" minlength="3" maxlength="20" required />
-        <input type="text" id="mobileNumber" placeholder="Mobile Number" minlength="10"
-        />
+        <input type="text" id="fullName" placeholder="Full Name" minlength="3" maxlength="20" required />
+        <input type="text" id="userName" placeholder="User Name" minlength="3" maxlength="20" required />
+        <input type="text" id="mobileNumber" placeholder="Mobile Number" minlength="10"/>
         <input type="email" id="emailID" placeholder="Email ID" required />
         <input type="password" id="password" placeholder="Password" minlength="8" required />
         <div class="button-box">
@@ -123,7 +123,7 @@
         .getElementById("registrationForm")
         .addEventListener("submit", function (event) {
           event.preventDefault(); // Prevent the default form submission
-
+          const fullName=document.getElementById("fullName").value;
           const userName = document.getElementById("userName").value;
           const mobileNumber = document.getElementById("mobileNumber").value;
           const emailID = document.getElementById("emailID").value;
@@ -131,6 +131,7 @@
 
           // Create the data object
           const userData = {
+            fullName:fullName,
             userName: userName,
             mobileNumber: mobileNumber,
             emailID: emailID,

@@ -3,6 +3,13 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
+  fullName: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 3,
+    maxlength: 20,
+  },
   userName: {
     type: String,
     required: true,
@@ -12,20 +19,32 @@ const userSchema = new mongoose.Schema({
   },
   mobileNumber: {
     type: String,
-    require: true,
+    required: true,
     unique: true,
-    minlength: 10,
-    maxlength: 10,
+    match: /^\d{10}$/, // Validates a 10-digit mobile number
   },
   emailID: {
-    require: true,
-    unique: true,
     type: String,
+    required: true,
+    unique: true,
+    match: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, // Validates email format
   },
   password: {
     type: String,
     required: true,
-    minlength: 8,
+    minLength: 6,
+  },
+  isEmailVerified: {
+    type: Boolean,
+    default: false,
+  },
+  emailVerificationToken: {
+    type: String,
+    required: false,
+  },
+  emailVerificationTokenExpires: {
+    type: Date,
+    required: false,
   },
   isAdmin: {
     type: Boolean,
