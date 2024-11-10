@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/auth", authRoute);
 app.use("/api/page", pageCheck);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT||5000;
 
 ConnectDB().then(() => {
   app.listen(PORT, () => {
