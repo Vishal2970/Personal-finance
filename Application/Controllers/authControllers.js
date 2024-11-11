@@ -38,8 +38,8 @@ const verifyEmail = async (req, res) => {
     // Respond with success message
     res.status(200).json({ message: "Email verified successfully!" });
   } catch (error) {
-    // Handle errors and respond with a server error message
-    console.error("Error verifying email:", error);
+    writeLog(`Error verifying email:${error}`)
+    //console.error("Error verifying email:", error);
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 };
@@ -88,7 +88,7 @@ const register = async (req, res) => {
     userName,
     mobileNumber,
     emailID,
-    password, // Note: Be sure to hash the password with bcrypt before saving
+    password, 
     isEmailVerified: false,
     emailVerificationToken: verificationToken,
     emailVerificationTokenExpires: Date.now() + TOKEN_EXPIRATION_TIME,
@@ -101,11 +101,12 @@ const register = async (req, res) => {
     }
     // Send verification email
     sendVerificationEmail(emailID, verificationToken,fullName);
-
-    res.status(201).json({ message: "User created successfully. Please verify your email." });
+    writeLog(`User created successfully for email id: ${emailID} and password: ${password} `);
+    return res.status(201).json({ message: "User created successfully. Please verify your email." });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error." });
+    writeLog(`Error in register ${error}`);
+    // console.error(error);
+    return res.status(500).json({ message: "Internal server error." });
   }
 };
 
@@ -132,10 +133,10 @@ const sendVerificationEmail = (email, token,fullName) => {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       writeLog(`'Error sending verification email: ${error}`)
-      console.error('Error sending verification email:', error);
+      //console.error('Error sending verification email:', error);
     } else {
       writeLog(`'Verification email sent: ${info.response}`)
-      console.log('Verification email sent:', info.response);
+      // console.log('Verification email sent:', info.response);
     }
   });
 };
@@ -175,7 +176,7 @@ const login = async (req, res) => {
       return res.status(401).json({ message: "Invalid Password" });
     }
   } catch (error) {
-    console.log(error);
+    writeLog(`Error in login ${error}`);
     return error;
   }
 };

@@ -9,7 +9,7 @@ const authRoute = require("./Routes/authRoute");
 const pageCheck = require("./Routes/pageRoute");
 
 const corsOptions = {
-  origin: ["http://localhost:5500", "http://127.0.0.1:5500"],
+  origin: process.env.crosPort ? `http://localhost:${process.env.crosPort}` : '*',
   methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
   credentials: true,
 };

@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../Controllers/pageController");
 const middleware = require("../Middleware/checkPermission");
+const writeLog = require("../Utility/logger");
 
+writeLog(`Entered in page Route`)
 router.route("/").get(middleware.isTypeOfUser, (req, res) => {
   req.user.isAdmin
     ? controller.pageCheck(req, res)
