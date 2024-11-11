@@ -3,3 +3,296 @@
 2024-11-11T10:51:47.958Z - entered in auth route
 2024-11-11T10:51:50.316Z - Connection Successfull
 2024-11-11T10:51:50.319Z - connection sucessfull 5000
+2024-11-11T11:09:00.259Z - entered in auth route
+2024-11-11T11:09:00.345Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:09:00.344Z - Entered in page Route
+2024-11-11T11:09:02.825Z - connection sucessfull 5000
+2024-11-11T11:09:02.769Z - Connection Successfull
+2024-11-11T11:10:15.738Z - entered in auth route
+2024-11-11T11:10:15.747Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:10:15.746Z - Entered in page Route
+2024-11-11T11:10:18.166Z - connection sucessfull 5000
+2024-11-11T11:10:18.159Z - Connection Successfull
+2024-11-11T11:12:22.433Z - Entered in page Route
+2024-11-11T11:12:22.434Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:12:22.425Z - entered in auth route
+2024-11-11T11:12:24.890Z - Connection Successfull
+2024-11-11T11:12:24.894Z - connection sucessfull 5000
+2024-11-11T11:14:45.430Z - Entered in page Route
+2024-11-11T11:14:45.419Z - entered in auth route
+2024-11-11T11:14:45.431Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:14:47.794Z - Connection Successfull
+2024-11-11T11:14:47.832Z - connection sucessfull 5000
+2024-11-11T11:15:09.886Z - entered in auth route
+2024-11-11T11:15:09.894Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:15:09.893Z - Entered in page Route
+2024-11-11T11:15:12.141Z - Connection Successfull
+2024-11-11T11:15:12.149Z - connection sucessfull 5000
+2024-11-11T11:15:36.784Z - entered in auth route
+2024-11-11T11:15:36.794Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:15:36.793Z - Entered in page Route
+2024-11-11T11:15:39.145Z - connection sucessfull 5000
+2024-11-11T11:15:39.138Z - Connection Successfull
+2024-11-11T11:15:53.040Z - user with Purushottam kumar , puru sir,9212073354,ukdeoghar@gmail.com & wdferfqwferf started register
+2024-11-11T11:15:53.809Z - user with Purushottam kumar is saved 
+2024-11-11T11:15:53.816Z - mail content [object Object] 
+2024-11-11T11:15:53.810Z - verification sending start for email ukdeoghar@gmail.com and username Purushottam kumar of token 186e8692eacca9a446373d4fb964738c
+2024-11-11T11:15:53.819Z - User created successfully for email id: ukdeoghar@gmail.com and password: wdferfqwferf 
+2024-11-11T11:15:53.842Z - 'Error sending verification email: Error: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:20:00.337Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:20:00.329Z - entered in auth route
+2024-11-11T11:20:00.336Z - Entered in page Route
+2024-11-11T11:20:02.637Z - Connection Successfull
+2024-11-11T11:20:02.642Z - connection sucessfull 5000
+2024-11-11T11:27:21.887Z - user with Purushottam kumar , edwffwf3frf,9212073354,ukdeoghar@gmail.com & erfrwffrtgrtg started register
+2024-11-11T11:28:08.121Z - Entered in page Route
+2024-11-11T11:28:08.114Z - entered in auth route
+2024-11-11T11:28:08.122Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:28:10.351Z - connection sucessfull 5000
+2024-11-11T11:28:10.344Z - Connection Successfull
+2024-11-11T11:28:33.842Z - user with Purushottam kumar , edwffwf3frf,9212073354,ukdeoghar@gmail.com & erfrwffrtgrtg started register
+2024-11-11T11:28:34.289Z - mail content [object Object] 
+2024-11-11T11:28:34.284Z - verification sending start for email ukdeoghar@gmail.com and username Purushottam kumar of token 5e4dcd7bdf45e4753bd1f9aa0d701c1f
+2024-11-11T11:28:34.327Z - 'Error sending verification email: Error: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:28:34.609Z - User created successfully for email id: ukdeoghar@gmail.com and password: erfrwffrtgrtg 
+2024-11-11T11:28:34.609Z - user with Purushottam kumar is saved 
+2024-11-11T11:29:05.112Z - Entered in page Route
+2024-11-11T11:29:05.114Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:29:05.105Z - entered in auth route
+2024-11-11T11:29:07.378Z - Connection Successfull
+2024-11-11T11:29:07.382Z - connection sucessfull 5000
+2024-11-11T11:29:34.605Z - entered in auth route
+2024-11-11T11:29:34.611Z - Entered in page Route
+2024-11-11T11:29:34.612Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:29:36.918Z - Connection Successfull
+2024-11-11T11:29:36.923Z - connection sucessfull 5000
+2024-11-11T11:30:18.564Z - entered in auth route
+2024-11-11T11:30:18.572Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:30:18.570Z - Entered in page Route
+2024-11-11T11:30:20.912Z - Connection Successfull
+2024-11-11T11:30:20.918Z - connection sucessfull 5000
+2024-11-11T11:30:33.600Z - user with Purushottam kumar , edwffwf3frf,9212073354,ukdeoghar@gmail.com & rf4gwefef started register
+2024-11-11T11:30:34.071Z - verification sending start for email ukdeoghar@gmail.com and username Purushottam kumar of token 2ec0c8b4f0c90ae0792fef9402afc9e8
+2024-11-11T11:30:34.077Z - mail content 
+        <p>Hi Purushottam kumar,</p>
+        <p>You are trying to register on Vishal's website using the mobile number 9212073354.</p>
+        <p>Please verify your email by clicking on the link below:</p>
+        <p><a href="http://localhost:5000/api/auth/verify-email?token=2ec0c8b4f0c90ae0792fef9402afc9e8">Verify Email</a></p>
+     
+2024-11-11T11:30:34.121Z - 'Error sending verification email: Error: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:30:34.399Z - User created successfully for email id: ukdeoghar@gmail.com and password: rf4gwefef 
+2024-11-11T11:30:34.398Z - user with Purushottam kumar is saved 
+2024-11-11T11:32:39.173Z - user with hariohm kumar , hariom,7982030324,hariohmthakur@gmail.com & hariohm123456 started register
+2024-11-11T11:32:39.638Z - verification sending start for email hariohmthakur@gmail.com and username hariohm kumar of token 0d2832ad2bf38aed9bc96e7ff5a1287c
+2024-11-11T11:32:39.639Z - mail content 
+        <p>Hi hariohm kumar,</p>
+        <p>You are trying to register on Vishal's website using the mobile number 7982030324.</p>
+        <p>Please verify your email by clicking on the link below:</p>
+        <p><a href="http://localhost:5000/api/auth/verify-email?token=0d2832ad2bf38aed9bc96e7ff5a1287c">Verify Email</a></p>
+     
+2024-11-11T11:32:39.669Z - 'Error sending verification email: Error: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:32:39.974Z - user with hariohm kumar is saved 
+2024-11-11T11:32:39.974Z - User created successfully for email id: hariohmthakur@gmail.com and password: hariohm123456 
+2024-11-11T11:34:03.259Z - user with Vishal Agrahari , v.ag7570@gmail.com,7570882970,vishalagraharibasti@gmail.com & dfsfssgdgdghd started register
+2024-11-11T11:34:03.734Z - mail content 
+        <p>Hi Vishal Agrahari,</p>
+        <p>You are trying to register on Vishal's website using the mobile number 7570882970.</p>
+        <p>Please verify your email by clicking on the link below:</p>
+        <p><a href="http://localhost:5000/api/auth/verify-email?token=06667221ded7c9a95f73ca4dcef59c24">Verify Email</a></p>
+     
+2024-11-11T11:34:03.733Z - verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari of token 06667221ded7c9a95f73ca4dcef59c24
+2024-11-11T11:34:03.757Z - 'Error sending verification email: Error: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:34:04.065Z - user with Vishal Agrahari is saved 
+2024-11-11T11:34:04.065Z - User created successfully for email id: vishalagraharibasti@gmail.com and password: dfsfssgdgdghd 
+2024-11-11T11:43:56.883Z - user with Vishal Agrahari , v.ag7570@gmail.com,1234567890,vishalagraharibasti@gmail.com & drgfsdgdgsdf started register
+2024-11-11T11:43:57.345Z - verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari of token 30362c6c1bb4dcaa80f657124aee8c77
+2024-11-11T11:43:57.346Z - mail content 
+        <p>Hi Vishal Agrahari,</p>
+        <p>You are trying to register on Vishal's website using the mobile number 1234567890.</p>
+        <p>Please verify your email by clicking on the link below:</p>
+        <p><a href="http://localhost:5000/api/auth/verify-email?token=30362c6c1bb4dcaa80f657124aee8c77">Verify Email</a></p>
+     
+2024-11-11T11:43:57.372Z - 'Error sending verification email: Error: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:43:57.681Z - user with Vishal Agrahari is saved 
+2024-11-11T11:43:57.681Z - User created successfully for email id: vishalagraharibasti@gmail.com and password: drgfsdgdgsdf 
+2024-11-11T11:44:31.347Z - Entered in page Route
+2024-11-11T11:44:31.339Z - entered in auth route
+2024-11-11T11:44:31.348Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:44:32.362Z - entered in auth route
+2024-11-11T11:44:32.371Z - Entered in page Route
+2024-11-11T11:44:32.373Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:44:34.733Z - Connection Successfull
+2024-11-11T11:44:34.737Z - connection sucessfull 5000
+2024-11-11T11:44:43.089Z - entered in auth route
+2024-11-11T11:44:43.097Z - Entered in page Route
+2024-11-11T11:44:43.098Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:44:46.977Z - Connection Successfull
+2024-11-11T11:44:46.983Z - connection sucessfull 5000
+2024-11-11T11:45:32.437Z - user with Vishal Agrahari , v.ag7570@gmail.com,9212073354,vishalagraharibasti@gmail.com & fgsfhfhgdfhhgf started register
+2024-11-11T11:45:53.002Z - user with Vishal Agrahari , v.ag7570@gmail.com,9212073354,vishalagraharibasti@gmail.com & fgsfhfhgdfhhgf started register
+2024-11-11T11:46:06.062Z - entered in auth route
+2024-11-11T11:46:06.068Z - Entered in page Route
+2024-11-11T11:46:06.070Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:46:08.447Z - Connection Successfull
+2024-11-11T11:46:08.451Z - connection sucessfull 5000
+2024-11-11T11:46:16.432Z - user with Vishal Agrahari , v.ag7570@gmail.com,9212073354,vishalagraharibasti@gmail.com & fgsfhfhgdfhhgf started register
+2024-11-11T11:47:01.706Z - user with Vishal Agrahari , vishal,9212073354,vishalagraharibasti@gmail.com & vishal7570 started register
+2024-11-11T11:47:10.537Z - user with Vishal Agrahari , vishal,9212073354,vishalagraharibasti@gmail.com & 12345678 started register
+2024-11-11T11:47:37.051Z - Entered in page Route
+2024-11-11T11:47:37.053Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:47:37.044Z - entered in auth route
+2024-11-11T11:47:39.688Z - entered in auth route
+2024-11-11T11:47:39.694Z - Entered in page Route
+2024-11-11T11:47:39.696Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:47:42.006Z - connection sucessfull 5000
+2024-11-11T11:47:42.000Z - Connection Successfull
+2024-11-11T11:47:43.950Z - user with Vishal Agrahari , vishal,9212073354,vishalagraharibasti@gmail.com & 12345678 started register
+2024-11-11T11:48:27.061Z - entered in auth route
+2024-11-11T11:48:27.069Z - Entered in page Route
+2024-11-11T11:48:27.072Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:48:29.348Z - Connection Successfull
+2024-11-11T11:48:29.354Z - connection sucessfull 5000
+2024-11-11T11:48:31.352Z - entered in auth route
+2024-11-11T11:48:31.360Z - Entered in page Route
+2024-11-11T11:48:31.361Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:48:33.720Z - Connection Successfull
+2024-11-11T11:48:33.764Z - connection sucessfull 5000
+2024-11-11T11:48:37.927Z - user with Vishal Agrahari , vishal,9212073354,vishalagraharibasti@gmail.com & 12345678 started register
+2024-11-11T11:50:29.070Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:50:29.062Z - entered in auth route
+2024-11-11T11:50:29.068Z - Entered in page Route
+2024-11-11T11:50:31.318Z - Connection Successfull
+2024-11-11T11:50:31.326Z - connection sucessfull 5000
+2024-11-11T11:51:24.692Z - entered in auth route
+2024-11-11T11:51:24.700Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:51:24.699Z - Entered in page Route
+2024-11-11T11:51:26.943Z - connection sucessfull 5000
+2024-11-11T11:51:26.936Z - Connection Successfull
+2024-11-11T11:52:04.678Z - entered in auth route
+2024-11-11T11:52:04.686Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:52:04.685Z - Entered in page Route
+2024-11-11T11:52:06.980Z - Connection Successfull
+2024-11-11T11:52:06.983Z - connection sucessfull 5000
+2024-11-11T11:52:13.394Z - Entered in page Route
+2024-11-11T11:52:13.385Z - entered in auth route
+2024-11-11T11:52:13.395Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:52:15.737Z - connection sucessfull 5000
+2024-11-11T11:52:15.734Z - Connection Successfull
+2024-11-11T11:52:19.170Z - mobileNumber length is appropriate
+2024-11-11T11:52:19.170Z - user with Vishal Agrahari , vishal,9212073354,vishalagraharibasti@gmail.com & 12345678 started register
+2024-11-11T11:52:19.170Z - username length is appropriate
+2024-11-11T11:52:19.623Z - User with this mobile number or email checking
+2024-11-11T11:52:19.623Z - User with this mobile number or email already exists
+2024-11-11T11:52:54.706Z - user with Vishal Agrahari , vishal,9212073354,vishalagraharibasti@gmail.com & 12345678 started register
+2024-11-11T11:52:54.706Z - mobileNumber length is appropriate
+2024-11-11T11:52:54.706Z - username length is appropriate
+2024-11-11T11:52:55.149Z - User with this mobile number or email checking
+2024-11-11T11:52:55.152Z - user is going to create
+2024-11-11T11:52:55.455Z - user with Vishal Agrahari is saved 
+2024-11-11T11:52:55.455Z - verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari of token 42945d10e96659f2315cbc8bfaa94c43
+2024-11-11T11:52:55.462Z - User created successfully for email id: vishalagraharibasti@gmail.com and password: 12345678 
+2024-11-11T11:52:55.486Z - 'Error sending verification email: Error: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:55:42.998Z - entered in auth route
+2024-11-11T11:55:43.008Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:55:43.006Z - Entered in page Route
+2024-11-11T11:55:45.254Z - Connection Successfull
+2024-11-11T11:55:45.258Z - connection sucessfull 5000
+2024-11-11T11:56:08.949Z - User  with Vishal Agrahari, v.ag7570@gmail.com, 9212073354, vishalagraharibasti@gmail.com & password started registration
+2024-11-11T11:56:08.949Z - Mobile number length is appropriate
+2024-11-11T11:56:08.949Z - Username length is appropriate
+2024-11-11T11:56:09.404Z - Checking if user with this mobile number or email exists
+2024-11-11T11:56:09.412Z - User  is going to be created
+2024-11-11T11:56:09.744Z - Verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari with token f098b009f7bd58d7c2f457185a0e73ec
+2024-11-11T11:56:09.743Z - User  with Vishal Agrahari is saved
+2024-11-11T11:56:09.785Z - User  created successfully for email id: vishalagraharibasti@gmail.com
+2024-11-11T11:56:09.785Z - Error sending verification email: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:57:40.430Z - Entered in page Route
+2024-11-11T11:57:40.424Z - entered in auth route
+2024-11-11T11:57:40.431Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:57:42.707Z - Connection Successfull
+2024-11-11T11:57:42.713Z - connection sucessfull 5000
+2024-11-11T11:58:01.373Z - User  with Vishal Agrahari, v.ag7570@gmail.com, 9212073354, vishalagraharibasti@gmail.com & password started registration
+2024-11-11T11:58:01.373Z - Mobile number length is appropriate
+2024-11-11T11:58:01.373Z - Username length is appropriate
+2024-11-11T11:58:01.833Z - Checking if user with this mobile number or email exists
+2024-11-11T11:58:01.842Z - User  is going to be created
+2024-11-11T11:58:02.159Z - User  with Vishal Agrahari is saved
+2024-11-11T11:58:02.159Z - Verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari with token 1d101131857b3c71357950d7d5287173
+2024-11-11T11:58:02.203Z - Error sending verification email: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:58:02.203Z - sendingStatus : undefined
+2024-11-11T11:58:02.204Z - User  created successfully for email id: vishalagraharibasti@gmail.com
+2024-11-11T11:58:39.127Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:58:39.119Z - entered in auth route
+2024-11-11T11:58:39.125Z - Entered in page Route
+2024-11-11T11:58:41.516Z - Connection Successfull
+2024-11-11T11:58:41.522Z - connection sucessfull 5000
+2024-11-11T11:59:34.679Z - Entered in page Route
+2024-11-11T11:59:34.673Z - entered in auth route
+2024-11-11T11:59:34.681Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T11:59:37.108Z - Connection Successfull
+2024-11-11T11:59:37.119Z - connection sucessfull 5000
+2024-11-11T11:59:52.604Z - Mobile number length is appropriate
+2024-11-11T11:59:52.604Z - User  with Vishal Agrahari, v.ag7570@gmail.com, 9212073354, vishalagraharibasti@gmail.com & password started registration
+2024-11-11T11:59:52.604Z - Username length is appropriate
+2024-11-11T11:59:53.056Z - User  is going to be created
+2024-11-11T11:59:53.048Z - Checking if user with this mobile number or email exists
+2024-11-11T11:59:53.381Z - User  with Vishal Agrahari is saved
+2024-11-11T11:59:53.382Z - Verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari with token 514dce450b5c71986017249cacf0106a
+2024-11-11T11:59:53.430Z - Error sending verification email: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T11:59:53.430Z - sendingStatus : undefined
+2024-11-11T11:59:53.430Z - User not created for email id: vishalagraharibasti@gmail.com
+2024-11-11T12:05:38.440Z - Entered in page Route
+2024-11-11T12:05:38.433Z - entered in auth route
+2024-11-11T12:05:38.441Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T12:05:41.280Z - Entered in page Route
+2024-11-11T12:05:41.281Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T12:05:41.272Z - entered in auth route
+2024-11-11T12:05:43.638Z - Connection Successfull
+2024-11-11T12:05:43.644Z - connection sucessfull 5000
+2024-11-11T12:05:44.400Z - User  with Vishal Agrahari, v.ag7570@gmail.com, 9212073354, vishalagraharibasti@gmail.com & password started registration
+2024-11-11T12:05:44.401Z - Mobile number length is appropriate
+2024-11-11T12:05:44.401Z - Username length is appropriate
+2024-11-11T12:05:46.038Z - User  is going to be created
+2024-11-11T12:05:46.034Z - Checking if user with this mobile number or email exists
+2024-11-11T12:05:46.039Z - Verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari with token d7911b8403520ab72d927ddc4d300a0e
+2024-11-11T12:05:46.064Z - User not created for email id: vishalagraharibasti@gmail.com
+2024-11-11T12:05:46.064Z - sendingStatus : undefined
+2024-11-11T12:05:46.064Z - Error sending verification email: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T12:06:09.345Z - User  with Vishal Agrahari, v.ag7570@gmail.com, 9212073354, vishalagraharibasti@gmail.com & password started registration
+2024-11-11T12:06:09.345Z - Username length is appropriate
+2024-11-11T12:06:09.345Z - Mobile number length is appropriate
+2024-11-11T12:06:09.801Z - Checking if user with this mobile number or email exists
+2024-11-11T12:06:09.801Z - Verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari with token 1faaad3184a773d9cdfeb4870822ef5d
+2024-11-11T12:06:09.801Z - User  is going to be created
+2024-11-11T12:06:09.820Z - Error sending verification email: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T12:06:09.820Z - User not created for email id: vishalagraharibasti@gmail.com
+2024-11-11T12:06:09.820Z - sendingStatus : undefined
+2024-11-11T12:06:31.538Z - Entered in page Route
+2024-11-11T12:06:31.531Z - entered in auth route
+2024-11-11T12:06:31.540Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T12:06:33.824Z - Connection Successfull
+2024-11-11T12:06:33.831Z - connection sucessfull 5000
+2024-11-11T12:06:36.908Z - User  with Vishal Agrahari, v.ag7570@gmail.com, 9212073354, vishalagraharibasti@gmail.com & password started registration
+2024-11-11T12:06:36.908Z - Username length is appropriate
+2024-11-11T12:06:36.908Z - Mobile number length is appropriate
+2024-11-11T12:06:37.386Z - Checking if user with this mobile number or email exists
+2024-11-11T12:06:37.390Z - User  is going to be created
+2024-11-11T12:06:37.390Z - Verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari with token 116a80c484d0296b94f279198c453183
+2024-11-11T12:06:37.417Z - Error sending verification email: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T12:06:37.417Z - User not created for email id: vishalagraharibasti@gmail.com
+2024-11-11T12:06:37.417Z - sendingStatus : undefined
+2024-11-11T12:11:59.682Z - Entered in page Route
+2024-11-11T12:11:59.683Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-11T12:11:59.648Z - entered in auth route
+2024-11-11T12:12:01.978Z - connection sucessfull 5000
+2024-11-11T12:12:01.971Z - Connection Successfull
+2024-11-11T12:12:07.801Z - User  with Vishal Agrahari, v.ag7570@gmail.com, 9212073354, vishalagraharibasti@gmail.com & password started registration
+2024-11-11T12:12:07.802Z - Mobile number length is appropriate
+2024-11-11T12:12:07.802Z - Username length is appropriate
+2024-11-11T12:12:08.263Z - Verification sending start for email vishalagraharibasti@gmail.com and username Vishal Agrahari with token 82f88a8dce1042d9accfe0edf28c669a
+2024-11-11T12:12:08.263Z - User  is going to be created
+2024-11-11T12:12:08.257Z - Checking if user with this mobile number or email exists
+2024-11-11T12:12:08.263Z - Credintials of gmail is v.ag7570@gmail.com and key is nvqmzijklogarkmy
+2024-11-11T12:12:08.292Z - sendingStatus : undefined
+2024-11-11T12:12:08.292Z - Error sending verification email: getaddrinfo ENOTFOUND smtp.gmail.com
+2024-11-11T12:12:08.292Z - User not created for email id: vishalagraharibasti@gmail.com
