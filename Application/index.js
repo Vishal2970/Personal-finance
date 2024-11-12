@@ -7,9 +7,9 @@ const cors = require("cors");
 const ConnectDB = require("./DBConnection/connectToDB");
 const authRoute = require("./Routes/authRoute");
 const pageCheck = require("./Routes/pageRoute");
-
+// process.env.PORT ? `http://localhost:${process.env.crosPort}` : 
 const corsOptions = {
-  origin: process.env.PORT ? `http://localhost:${process.env.crosPort}` : '*',
+  origin:'*',
   methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
   credentials: true,
 };
@@ -20,8 +20,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/auth", authRoute);
 app.use("/api/page", pageCheck);
 
-const PORT = process.env.PORT||5000;
-
+const PORT = process.env.PORT;
+if(!PORT){
+  throw new Error("PORT is not avaialable")
+}
 ConnectDB().then(() => {
   app.listen(PORT, () => {
     writeLog(`connection sucessfull ${PORT}`);
