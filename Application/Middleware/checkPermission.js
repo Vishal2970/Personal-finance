@@ -23,7 +23,7 @@ const isTypeOfUser = async (req, res, next) => {
   if (!token) return res.status(403).send("Access denied");
   try {
     const decoded = jwt.verify(token, process.env.SecretKey);
-    writeLog(`user data is ${decoded}`);
+    writeLog(`user data is ${decoded.userName}`);
     req.user = decoded;
     next();
   } catch (error) {

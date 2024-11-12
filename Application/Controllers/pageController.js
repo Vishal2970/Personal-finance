@@ -52,14 +52,14 @@ const insertingAmount = async (req, res) => {
 
 const addAmount = async (req, res) => {
   const emailID = req.user.emailID;
-  writeLog(`started adding amount for ${emailID}`);
+  writeLog(`started adding amount for ${emailID} and check here  ${req.user.fullName}`);
   try {
     const amountFound = await amount.find({ emailID: emailID });
     writeLog(`amount : ${amountFound}`)
     if (amountFound.length === 0) {
       return res
-        .status(404)
-        .json({ message: "No records found for this email ID." });
+        .status(200)
+        .json({ message: `No records found for ${req.user.userName}.` });
     }
     let totalAmount = 0;
     for (let i = 0; i < amountFound.length; i++) {

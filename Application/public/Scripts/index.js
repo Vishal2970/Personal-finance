@@ -1,6 +1,3 @@
-{
-  /* <script> */
-}
 document
   .getElementById("registrationForm")
   .addEventListener("submit", function (event) {
@@ -59,4 +56,3 @@ function showAlert(message, type) {
     alertBox.style.display = "none";
   }, 3000);
 }
-// </script>

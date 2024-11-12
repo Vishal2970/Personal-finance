@@ -1,9 +1,4 @@
-{
-  /* <script> */
-}
-// Get the token from sessionStorage
 const token = sessionStorage.getItem("authToken");
-
 if (!token) {
   alert("You are not authorized. Please log in.");
   window.location.href = "login.html"; // Redirect to login if not authorized
@@ -24,32 +19,116 @@ if (!token) {
     })
     .then((data) => {
       const transactionList = document.getElementById("transactionList");
+      // Clear previous transaction data
+      transactionList.innerHTML = ""; // Clear the table body before adding new rows
       if (data.amountList && data.amountList.length > 0) {
         data.amountList.forEach((transaction) => {
-          const transactionItem = document.createElement("div");
-          transactionItem.classList.add("transaction");
-
-          // Format and display transaction details
+          const transactionItem = document.createElement("tr");
           transactionItem.innerHTML = `
-                <h3>${transaction.nameOfTransaction}</h3>
-                <p><strong>Amount Added:</strong> ${transaction.amountAdded}</p>
-                <p><strong>Date:</strong> ${new Date(
-                  transaction.date
-                ).toLocaleDateString()}</p>
-              `;
-
+                    <td>${transaction.nameOfTransaction}</td>
+                    <td>${transaction.amountAdded}</td>
+                    <td>${new Date(transaction.date).toLocaleDateString()}</td>
+                `;
           transactionList.appendChild(transactionItem);
         });
       } else {
-        transactionList.innerHTML = "<p>No transactions found.</p>";
+        transactionList.innerHTML =
+          "<tr><td colspan='3'>No transactions found.</td></tr>";
       }
     })
     .catch((error) => {
       console.error("Error:", error);
       document.getElementById("transactionList").innerHTML =
-        "<p>An error occurred while fetching transactions.</p>";
+        "<tr><td colspan='3'>An error occurred while fetching transactions.</td></tr>";
     });
-}
-{
-  /* </script> */
+
+  // Fetch the total amount from the API
+  fetch("http://localhost:5000/api/page/addamount", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token, // Attach the token in the Authorization header
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch total amount.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const totalAmountDiv = document.getElementById("totalAmount");
+
+      // Check if totalAmount exists
+      if (data.totalAmount !== undefined) {
+        totalAmountDiv.innerHTML = `<p>${data.totalAmount}</p>`;
+      }
+      // If totalAmount doesn't exist but a message is provided
+      else if (data.message) {
+        totalAmountDiv.innerHTML = `<p>${data.message}</p>`;
+      }
+      // If neither totalAmount nor message is provided
+      else {
+        totalAmountDiv.innerHTML = "<p>No data available.</p>"; // Default message
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      document.getElementById("totalAmount").innerHTML =`<p>${error.message}</p>`;
+        // "<p>An error occurred while fetching the total amount.</p>";
+    });
+
+  // Add data using API in database
+  document
+    .getElementById("addTransaction")
+    .addEventListener("click", function () {
+      const Amount = parseFloat(document.getElementById("amount").value);
+      const transactionType = document.querySelector(
+        'input[name="transactionType"]:checked'
+      ).value;
+      const transactionName = document
+        .getElementById("transactionName")
+        .value.trim();
+
+      // Validate inputs
+      if (!transactionName || isNaN(Amount)) {
+        alert("Please fill in all fields correctly");
+        return;
+      }
+
+      const isWithdrawal = transactionType === "Withdrawal";
+      // Object of transaction
+      const transactionData = {
+        Amount: Amount,
+        Withdrawal: isWithdrawal,
+        nameOfTransaction: transactionName,
+      };
+
+      // Start sending data
+      fetch("http://localhost:5000/api/page/insertamount", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify(transactionData),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to add transaction.");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          document.getElementById("transactionMessage").innerText =
+            "Transaction added successfully!";
+          document.getElementById("transactionForm").reset();
+          fetchTransactions();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          document.getElementById("transactionMessage").innerText =
+            "An error occurred while adding the transaction.";
+        });
+    });
 }
