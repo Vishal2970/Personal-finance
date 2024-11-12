@@ -18,7 +18,7 @@ document
     };
 
     // Send the data to the backend
-    fetch("http://localhost:5000/api/auth/register", {
+    fetch("https://personal-finance-cfz3.onrender.com/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -26,7 +26,7 @@ if (!token) {
 
   // Fetch the total trnx from the API
   function functionlistOftrxn(token) {
-    fetch("http://localhost:5000/api/page/list_of_transaction", {
+    fetch("https://personal-finance-cfz3.onrender.com/api/page/list_of_transaction", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ if (!token) {
   }
   // Fetch the total amount from the API
   function functionaddAlltrxn(token) {
-    fetch("http://localhost:5000/api/page/addamount", {
+    fetch("https://personal-finance-cfz3.onrender.com/api/page/addamount", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +130,7 @@ if (!token) {
         };
 
         // Start sending data
-        fetch("http://localhost:5000/api/page/insertamount", {
+        fetch("https://personal-finance-cfz3.onrender.com/api/page/insertamount", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

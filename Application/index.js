@@ -7,9 +7,10 @@ const cors = require("cors");
 const ConnectDB = require("./DBConnection/connectToDB");
 const authRoute = require("./Routes/authRoute");
 const pageCheck = require("./Routes/pageRoute");
-// process.env.PORT ? `http://localhost:${process.env.crosPort}` : 
+
+// CORS Options
 const corsOptions = {
-  origin:'*',
+  origin: '*',
   methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
   credentials: true,
 };
@@ -17,16 +18,23 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
 app.use("/api/auth", authRoute);
 app.use("/api/page", pageCheck);
 
+// Server Port
 const PORT = process.env.PORT;
-if(!PORT){
-  throw new Error("PORT is not avaialable")
+if (!PORT) {
+  throw new Error("PORT is not available in environment variables");
 }
+
+// Database Connection and Server Start
 ConnectDB().then(() => {
   app.listen(PORT, () => {
-    writeLog(`connection sucessfull ${PORT}`);
-    console.log(`server is running at Port :${PORT}`);
+    writeLog(`Connection successful at PORT ${PORT}`);
+    console.log(`Server is running at PORT: ${PORT}`);
   });
+}).catch(error => {
+  console.error("Database connection failed", error);
+  process.exit(1); // Exit process if DB connection fails
 });
