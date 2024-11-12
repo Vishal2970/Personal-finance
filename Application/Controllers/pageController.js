@@ -43,7 +43,7 @@ const insertingAmount = async (req, res) => {
   try {
     await inserting.save();
     writeLog(`inserted sucessfully`);
-    return res.status(200).json({ message: "inserted" });
+    return res.status(200).json({ message: "Inserted sucessfully" });
   } catch (error) {
     writeLog(`Error in insertingAmount ${error}`);
     return res.status(400).json({ message: "Not inserted" });
@@ -85,7 +85,7 @@ const listOfTransactionAdmin = async (req, res) => {
     writeLog(`list Of Transaction : ${amountList}`);
     if (amountList.length > 0)
       return res.status(200).json({ message: "list fetched successfully", amountList });
-    else return res.status(200).json({ message: "No data found", amountList });
+    else return res.status(200).json({ message: "No transactions found.", amountList });
   } catch (error) {
     writeLog(`error in listOfTransactionAdmin ${error}`)
     //console.log(error);
