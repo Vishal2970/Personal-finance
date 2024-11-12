@@ -34,6 +34,7 @@ document
 
           // Store the token in sessionStorage
           sessionStorage.setItem("authToken", data.token);
+          sessionStorage.setItem("userName", data.name);
 
           // Redirect to homepage if login is successful
           setTimeout(() => {

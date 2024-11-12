@@ -51,3 +51,23 @@ th {
 .input-group {
   margin-bottom: 15px;
 }
+.navbar {
+  background-color: #f2f2f2; /* Cream color */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+  padding: 10px; /* Padding for navbar */
+}
+
+.btn {
+  background-color: #007bff; /* Button color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

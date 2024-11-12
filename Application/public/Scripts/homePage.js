@@ -3,7 +3,23 @@ if (!token) {
   alert("You are not authorized. Please log in.");
   window.location.href = "login.html"; // Redirect to login if not authorized
 } else {
-  // Fetch the list of transactions with the token in headers
+   // Get the navbar element
+   const userNameElement = document.getElementById("user-name");
+   const logoutButton = document.getElementById("logout-btn");
+
+   // Set the username if it exists in sessionStorage
+   const userName = sessionStorage.getItem("userName");
+   if (userName) {
+       userNameElement.textContent = userName; // Set the username
+   }
+
+   // Add click event listener to the logout button
+   logoutButton.addEventListener("click", function() {
+       sessionStorage.clear(); // Clear the session storage
+       // Optionally, redirect to the login page or another page
+       window.location.href = "login.html"; // Change this to your desired page
+   });
+
   functionlistOftrxn(token);
   functionaddAlltrxn(token);
   functioninsertData(token);

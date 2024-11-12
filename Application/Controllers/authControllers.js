@@ -193,6 +193,7 @@ const login = async (req, res) => {
       return res.status(200).json({
         message: `Login successfull ${userExist.fullName}`,
         token: await userExist.generateToken(),
+        name:userExist.fullName,
       });
     } else {
       writeLog(`Invalid Password for ${userExist.emailID}`);

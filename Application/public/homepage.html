@@ -7,13 +7,23 @@
     <link rel="stylesheet" href="./Styles/homepage.css" />
   </head>
   <body>
+    <nav class="navbar" id="navbar">
+      <h1 id="user-name"></h1>
+      <!-- Placeholder for username -->
+      <button class="btn" id="logout-btn">Log Out</button>
+    </nav>
     <div class="container">
       <div class="box">
         <h3>Add Transaction</h3>
         <form id="transactionForm">
           <div class="input-group">
             <label>
-              <input type="radio" name="transactionType" value="Deposit" checked/>
+              <input
+                type="radio"
+                name="transactionType"
+                value="Deposit"
+                checked
+              />
               Deposit
             </label>
             <label>
@@ -22,7 +32,10 @@
             </label>
           </div>
           <input
-            type="text" id="transactionName" placeholder="Transaction Name"/>
+            type="text"
+            id="transactionName"
+            placeholder="Transaction Name"
+          />
           <input type="number" id="amount" placeholder="Amount" />
           <button type="button" id="addTransaction">Add</button>
         </form>
