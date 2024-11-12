@@ -111,21 +111,21 @@ const register = async (req, res) => {
       fullName
     );
     writeLog(`sendingStatus : ${sendingStatus}`);
-    if (sendingStatus) {
-      const savedUser = await newUser.save();
-      if (savedUser) {
-        writeLog(`User  with ${savedUser.fullName} is saved`);
-      }
-      writeLog(`User  created successfully for email id: ${emailID}`);
-      return res.status(201).json({
-        message: "User  created successfully. Please verify your email.",
-      });
-    } else {
-      writeLog(`User not created for email id: ${emailID}`);
-      return res.status(401).json({
-        message: "User not created.",
-      });
+    // if (sendingStatus) {
+    const savedUser = await newUser.save();
+    if (savedUser) {
+      writeLog(`User  with ${savedUser.fullName} is saved`);
     }
+    writeLog(`User  created successfully for email id: ${emailID}`);
+    return res.status(201).json({
+      message: "User  created successfully. Please verify your email.",
+    });
+    // } else {
+    // writeLog(`User not created for email id: ${emailID}`);
+    // return res.status(401).json({
+    //   message: "User not created.",
+    // });
+    // }
   } catch (error) {
     writeLog(`Error in registration: ${error.message}`);
     return res.status(500).json({ message: "Internal server error." });
@@ -193,7 +193,7 @@ const login = async (req, res) => {
       return res.status(200).json({
         message: `Login successfull ${userExist.fullName}`,
         token: await userExist.generateToken(),
-        name:userExist.fullName,
+        name: userExist.fullName,
       });
     } else {
       writeLog(`Invalid Password for ${userExist.emailID}`);

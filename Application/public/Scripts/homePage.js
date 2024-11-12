@@ -26,7 +26,7 @@ if (!token) {
 
   // Fetch the total trnx from the API
   function functionlistOftrxn(token) {
-    fetch("https://personal-finance-cfz3.onrender.com/api/page/list_of_transaction", {
+    fetch("http://localhost:5000/api/page/list_of_transaction", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -50,6 +50,7 @@ if (!token) {
                     <td>${transaction.nameOfTransaction}</td>
                     <td>${transaction.amountAdded}</td>
                     <td>${new Date(transaction.date).toLocaleDateString()}</td>
+                    <td><button id="delete" onClick=${functionDeleteParticular(token,transaction._id)} class="addTransaction">Delete</button></td>
                 `;
             transactionList.appendChild(transactionItem);
           });
@@ -65,7 +66,7 @@ if (!token) {
   }
   // Fetch the total amount from the API
   function functionaddAlltrxn(token) {
-    fetch("https://personal-finance-cfz3.onrender.com/api/page/addamount", {
+    fetch("http://localhost:5000/api/page/addamount", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +131,7 @@ if (!token) {
         };
 
         // Start sending data
-        fetch("https://personal-finance-cfz3.onrender.com/api/page/insertamount", {
+        fetch("http://localhost:5000/api/page/insertamount", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -158,4 +159,9 @@ if (!token) {
           });
       });
   }
+
+  //delete particular transaction
+  function functionDeleteParticular(token,transactionID){
+    
+  } 
 }
