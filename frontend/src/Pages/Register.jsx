@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import './Styles/register.css';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Styles/register.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegistrationPage = () => {
-  const [fullName, setFullName] = useState('');
-  const [userName, setUserName] = useState('');
-  const [mobileNumber, setMobileNumber] = useState('');
-  const [emailID, setEmailID] = useState('');
-  const [password, setPassword] = useState('');
-  const [responseMessage, setResponseMessage] = useState('');
-  const [messageType, setMessageType] = useState('');
+  const [fullName, setFullName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [emailID, setEmailID] = useState("");
+  const [password, setPassword] = useState("");
+  const [responseMessage, setResponseMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission
@@ -25,13 +26,16 @@ const RegistrationPage = () => {
 
     try {
       //const response = await fetch("http://localhost:5000/api/auth/register", {
-      const response = await fetch("https://personal-finance-29bb.onrender.com/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await fetch(
+        "https://personal-finance-29bb.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -39,17 +43,17 @@ const RegistrationPage = () => {
 
       const data = await response.json();
       setResponseMessage(data.message);
-      showAlert(data.message, 'success');
+      showAlert(data.message, "success");
       resetForm();
 
       // Redirect to login page after 1 second
       setTimeout(() => {
-        window.location.href = "login.html";
+        navigate("/");
       }, 1000);
     } catch (error) {
       console.error("Error:", error);
       setResponseMessage("An error occurred. Please try again.");
-      showAlert("An error occurred. Please try again.", 'error');
+      showAlert("An error occurred. Please try again.", "error");
     }
   };
 
@@ -59,16 +63,16 @@ const RegistrationPage = () => {
 
     // Automatically hide the alert after 3 seconds
     setTimeout(() => {
-      setResponseMessage('');
+      setResponseMessage("");
     }, 3000);
   };
 
   const resetForm = () => {
-    setFullName('');
-    setUserName('');
-    setMobileNumber('');
-    setEmailID('');
-    setPassword('');
+    setFullName("");
+    setUserName("");
+    setMobileNumber("");
+    setEmailID("");
+    setPassword("");
   };
 
   return (
