@@ -26,7 +26,8 @@ if (!token) {
 
   // Fetch the total trnx from the API
   function functionlistOftrxn(token) {
-    fetch("http://localhost:5000/api/page/list_of_transaction", {
+    // fetch("http://localhost:5000/api/page/list_of_transaction", {
+    fetch(".././Controllers/pageController/list_of_transaction",{
       method: "GET",
       headers: {
         "Content-Type": "application/json",

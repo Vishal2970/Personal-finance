@@ -1,0 +1,5 @@
+2024-11-13T05:02:55.203Z - entered in auth route
+2024-11-13T05:02:55.210Z - Entered in page Route
+2024-11-13T05:02:55.211Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-13T05:02:57.644Z - Connection Successfull
+2024-11-13T05:02:57.654Z - Connection successful at PORT 5000
