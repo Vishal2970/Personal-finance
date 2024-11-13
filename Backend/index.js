@@ -16,14 +16,14 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Routes
 app.use("/api/auth", authRoute);
 app.use("/api/page", pageCheck);
 
 // Server Port
-const PORT = process.env.PORT;
+const PORT = process.env.PORT||5000;
 if (!PORT) {
   throw new Error("PORT is not available in environment variables");
 }
@@ -36,5 +36,5 @@ ConnectDB().then(() => {
   });
 }).catch(error => {
   console.error("Database connection failed", error);
-  process.exit(1); // Exit process if DB connection fails
+  process.exit(1);
 });
