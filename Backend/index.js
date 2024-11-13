@@ -7,6 +7,7 @@ const cors = require("cors");
 const ConnectDB = require("./DBConnection/connectToDB");
 const authRoute = require("./Routes/authRoute");
 const pageCheck = require("./Routes/pageRoute");
+const logInApis = require('./Middleware/log');
 
 // CORS Options
 const corsOptions = {
@@ -19,15 +20,8 @@ app.use(express.json());
 
 
 // Routes
-app.use("/", (req, res) => {
-  writeLog(`Trying to hit this: ${req}`)
-  console.log(req);
-  
-  return res.send("Hello Vishal");
-});
-app.use("/api/auth", authRoute);
-app.use("/api/page", pageCheck);
-
+app.use("/api/auth",logInApis, authRoute);
+app.use("/api/page", logInApis,pageCheck);
 // Server Port
 const PORT = process.env.PORT||5000;
 if (!PORT) {
