@@ -3,3 +3,358 @@
 2024-11-13T05:02:55.211Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
 2024-11-13T05:02:57.644Z - Connection Successfull
 2024-11-13T05:02:57.654Z - Connection successful at PORT 5000
+2024-11-13T05:32:12.306Z - started connecting to DB with URI :mongodb+srv://vishalagraharibasti:Agrahari123@cluster0.fwudeea.mongodb.net/Finance_Tracker?retryWrites=true&w=majority
+2024-11-13T05:32:12.305Z - Entered in page Route
+2024-11-13T05:32:12.298Z - entered in auth route
+2024-11-13T05:32:26.205Z - Connection successful at PORT 5000
+2024-11-13T05:32:26.199Z - Connection Successfull
+2024-11-13T05:32:56.923Z - userInput v.ag7570@gmail.com,password 7570882970 started login
+2024-11-13T05:32:57.224Z - login successfull for v.ag7570@gmail.com
+2024-11-13T05:32:57.228Z - token generated for vishal_2970 and email id v.ag7570@gmail.com token :eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzMwOGQ3MDA0MjQ3Y2UzM2IxMGEwNDYiLCJ1c2VyTmFtZSI6InZpc2hhbF8yOTcwIiwiZW1haWxJRCI6InYuYWc3NTcwQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTQ3NTk3NywiZXhwIjoxNzMxNDc5NTc3fQ.a8MtFWoNNLRXaOV4XQ_Vfe7ASJx3xUQJlDq3lQeMiks
+2024-11-13T05:32:57.224Z - started generating token for vishal_2970 and email id v.ag7570@gmail.com
+2024-11-13T05:40:51.480Z - userInput v.ag7570@gmail.com,password 7570882970 started login
+2024-11-13T05:40:51.785Z - login successfull for v.ag7570@gmail.com
+2024-11-13T05:40:51.785Z - started generating token for vishal_2970 and email id v.ag7570@gmail.com
+2024-11-13T05:40:51.787Z - token generated for vishal_2970 and email id v.ag7570@gmail.com token :eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzMwOGQ3MDA0MjQ3Y2UzM2IxMGEwNDYiLCJ1c2VyTmFtZSI6InZpc2hhbF8yOTcwIiwiZW1haWxJRCI6InYuYWc3NTcwQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTQ3NjQ1MSwiZXhwIjoxNzMxNDgwMDUxfQ.qXWCS4Rw6H12pSG1LrgU5-5J4nySVQCh_ZDAQM5eWws
+2024-11-13T05:40:52.845Z - Entered in middleware isTypeOfUser with token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzMwOGQ3MDA0MjQ3Y2UzM2IxMGEwNDYiLCJ1c2VyTmFtZSI6InZpc2hhbF8yOTcwIiwiZW1haWxJRCI6InYuYWc3NTcwQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTQ3NjQ1MSwiZXhwIjoxNzMxNDgwMDUxfQ.qXWCS4Rw6H12pSG1LrgU5-5J4nySVQCh_ZDAQM5eWws
+2024-11-13T05:40:52.847Z - user data is vishal_2970
+2024-11-13T05:40:52.847Z - Started searching list Of Transaction for v.ag7570@gmail.com
+2024-11-13T05:40:52.850Z - Entered in middleware isTypeOfUser with token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzMwOGQ3MDA0MjQ3Y2UzM2IxMGEwNDYiLCJ1c2VyTmFtZSI6InZpc2hhbF8yOTcwIiwiZW1haWxJRCI6InYuYWc3NTcwQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTQ3NjQ1MSwiZXhwIjoxNzMxNDgwMDUxfQ.qXWCS4Rw6H12pSG1LrgU5-5J4nySVQCh_ZDAQM5eWws
+2024-11-13T05:40:52.851Z - started adding amount for v.ag7570@gmail.com and check here  undefined
+2024-11-13T05:40:52.851Z - user data is vishal_2970
+2024-11-13T05:40:53.081Z - list Of Transaction : {
+  _id: new ObjectId('673331008a1cd3397f8d55d2'),
+  amountAdded: '100000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'puru sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673331168a1cd3397f8d55d6'),
+  amountAdded: '-50000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'credit card',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673331268a1cd3397f8d55da'),
+  amountAdded: '-25000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'hariohm sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673332d1aa8cd44b7b28dc21'),
+  amountAdded: '5000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'prafull sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673334c49164721ee3f507fa'),
+  amountAdded: '2000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'papa',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('6733350578cc2eacd6518aef'),
+  amountAdded: '6200',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'ddd',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('6733351578cc2eacd6518af4'),
+  amountAdded: '-223',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'dwd',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673383e71640f987dfeba969'),
+  amountAdded: '75839',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'vishal',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('67337e9d1640f987dfeba948'),
+  amountAdded: '4000',
+  emailID: 'vishalagraharibasti@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'shivam',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('67337eab1640f987dfeba94c'),
+  amountAdded: '5000',
+  emailID: 'vishalagraharibasti@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'shivangi',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('67337ece1640f987dfeba950'),
+  amountAdded: '-3000',
+  emailID: 'vishalagraharibasti@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'siddhant',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673389a86d6da77a9d772127'),
+  amountAdded: '988',
+  emailID: 'vishalagraharibasti@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'kjefn',
+  date: '2024-11-12',
+  __v: 0
+}
+2024-11-13T05:40:53.088Z - amount : {
+  _id: new ObjectId('673331008a1cd3397f8d55d2'),
+  amountAdded: '100000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'puru sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673331168a1cd3397f8d55d6'),
+  amountAdded: '-50000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'credit card',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673331268a1cd3397f8d55da'),
+  amountAdded: '-25000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'hariohm sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673332d1aa8cd44b7b28dc21'),
+  amountAdded: '5000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'prafull sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673334c49164721ee3f507fa'),
+  amountAdded: '2000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'papa',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('6733350578cc2eacd6518aef'),
+  amountAdded: '6200',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'ddd',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('6733351578cc2eacd6518af4'),
+  amountAdded: '-223',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'dwd',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673383e71640f987dfeba969'),
+  amountAdded: '75839',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'vishal',
+  date: '2024-11-12',
+  __v: 0
+}
+2024-11-13T05:40:53.088Z - totalAmount 113816
+2024-11-13T05:43:59.249Z - userInput v.ag7570@gmail.com,password 7570882970 started login
+2024-11-13T05:43:59.582Z - token generated for vishal_2970 and email id v.ag7570@gmail.com token :eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzMwOGQ3MDA0MjQ3Y2UzM2IxMGEwNDYiLCJ1c2VyTmFtZSI6InZpc2hhbF8yOTcwIiwiZW1haWxJRCI6InYuYWc3NTcwQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTQ3NjYzOSwiZXhwIjoxNzMxNDgwMjM5fQ.nui3HfmApCBVj0BFF71M_xP75joqVFqJkoLNO1K2nQw
+2024-11-13T05:43:59.581Z - started generating token for vishal_2970 and email id v.ag7570@gmail.com
+2024-11-13T05:43:59.580Z - login successfull for v.ag7570@gmail.com
+2024-11-13T05:44:00.608Z - Entered in middleware isTypeOfUser with token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzMwOGQ3MDA0MjQ3Y2UzM2IxMGEwNDYiLCJ1c2VyTmFtZSI6InZpc2hhbF8yOTcwIiwiZW1haWxJRCI6InYuYWc3NTcwQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTQ3NjYzOSwiZXhwIjoxNzMxNDgwMjM5fQ.nui3HfmApCBVj0BFF71M_xP75joqVFqJkoLNO1K2nQw
+2024-11-13T05:44:00.609Z - user data is vishal_2970
+2024-11-13T05:44:00.609Z - Started searching list Of Transaction for v.ag7570@gmail.com
+2024-11-13T05:44:00.611Z - Entered in middleware isTypeOfUser with token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzMwOGQ3MDA0MjQ3Y2UzM2IxMGEwNDYiLCJ1c2VyTmFtZSI6InZpc2hhbF8yOTcwIiwiZW1haWxJRCI6InYuYWc3NTcwQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTQ3NjYzOSwiZXhwIjoxNzMxNDgwMjM5fQ.nui3HfmApCBVj0BFF71M_xP75joqVFqJkoLNO1K2nQw
+2024-11-13T05:44:00.612Z - started adding amount for v.ag7570@gmail.com and check here  undefined
+2024-11-13T05:44:00.612Z - user data is vishal_2970
+2024-11-13T05:44:00.830Z - list Of Transaction : {
+  _id: new ObjectId('673331008a1cd3397f8d55d2'),
+  amountAdded: '100000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'puru sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673331168a1cd3397f8d55d6'),
+  amountAdded: '-50000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'credit card',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673331268a1cd3397f8d55da'),
+  amountAdded: '-25000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'hariohm sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673332d1aa8cd44b7b28dc21'),
+  amountAdded: '5000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'prafull sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673334c49164721ee3f507fa'),
+  amountAdded: '2000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'papa',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('6733350578cc2eacd6518aef'),
+  amountAdded: '6200',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'ddd',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('6733351578cc2eacd6518af4'),
+  amountAdded: '-223',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'dwd',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673383e71640f987dfeba969'),
+  amountAdded: '75839',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'vishal',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('67337e9d1640f987dfeba948'),
+  amountAdded: '4000',
+  emailID: 'vishalagraharibasti@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'shivam',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('67337eab1640f987dfeba94c'),
+  amountAdded: '5000',
+  emailID: 'vishalagraharibasti@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'shivangi',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('67337ece1640f987dfeba950'),
+  amountAdded: '-3000',
+  emailID: 'vishalagraharibasti@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'siddhant',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673389a86d6da77a9d772127'),
+  amountAdded: '988',
+  emailID: 'vishalagraharibasti@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'kjefn',
+  date: '2024-11-12',
+  __v: 0
+}
+2024-11-13T05:44:00.838Z - totalAmount 113816
+2024-11-13T05:44:00.838Z - amount : {
+  _id: new ObjectId('673331008a1cd3397f8d55d2'),
+  amountAdded: '100000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'puru sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673331168a1cd3397f8d55d6'),
+  amountAdded: '-50000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'credit card',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673331268a1cd3397f8d55da'),
+  amountAdded: '-25000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'hariohm sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673332d1aa8cd44b7b28dc21'),
+  amountAdded: '5000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'prafull sir',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673334c49164721ee3f507fa'),
+  amountAdded: '2000',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'papa',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('6733350578cc2eacd6518aef'),
+  amountAdded: '6200',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'ddd',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('6733351578cc2eacd6518af4'),
+  amountAdded: '-223',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: true,
+  nameOfTransaction: 'dwd',
+  date: '2024-11-12',
+  __v: 0
+},{
+  _id: new ObjectId('673383e71640f987dfeba969'),
+  amountAdded: '75839',
+  emailID: 'v.ag7570@gmail.com',
+  Withdrawal: false,
+  nameOfTransaction: 'vishal',
+  date: '2024-11-12',
+  __v: 0
+}
