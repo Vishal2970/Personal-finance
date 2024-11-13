@@ -1,22 +1,3 @@
-/* <style> */
-:root {
-  --primary-color: #007bff;
-  --primary-color-dark: #0056b3;
-  --success-color: #28a745;
-  --error-color: #dc3545;
-  --link-color: #b93774;
-  --link-hover-color: #69d34f;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
   width: 100%;
   max-width: 400px;
@@ -25,78 +6,31 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   background-color: white;
+  display: flex; /* Add this to use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
 }
 
 h1 {
-  margin: 0 0 20px 0; /* Add margin below the header */
+  margin: 10px 0; /* Keep margin for spacing */
   text-align: center; /* Center the text */
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Stack inputs vertically */
+  width: 100%; /* Ensure form takes full width */
 }
 
 .button-box {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-input {
-  margin-bottom: 10px;
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  padding: 10px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--primary-color-dark);
+  justify-content: center; /* Center buttons horizontally */
+  margin-top: 20px; /* Space above the button box */
 }
 
 #line {
   margin: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Center content in the line */
+  width: 100%; /* Ensure line takes full width */
 }
-
-#line a {
-  margin-left: 5px;
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-#line a:hover {
-  color: var(--link-hover-color);
-}
-
-#responseMessage {
-  display: none; /* Initially hidden */
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  color: white;
-}
-
-.success {
-  background-color: var(--success-color);
-  border-color: var(--success-color);
-}
-
-.error {
-  background-color: var(--error-color);
-  border-color: var(--error-color);
-}
-
-/* Show response message when it has content */
-#responseMessage:not(:empty) {
-  display: block;
-}
-/* </style> */

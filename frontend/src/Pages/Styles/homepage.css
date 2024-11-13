@@ -1,56 +1,70 @@
-/* <style> */
-/* .container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-.transaction {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
-}
-.transaction h3 {
-  margin: 0;
-}
-.transaction p {
-  margin: 5px 0;
-  color: #555;
-} */
-/* </style> */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
 }
+
 .container {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
+  max-width: 600px; /* Set a maximum width for the container */
+  margin: 40px auto 0; /* Center the container */
+  padding: 20px; /* Add padding inside the container */
+  background-color: white; /* Background color for the container */
+  border-radius: 5px; /* Rounded corners for the container */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
 }
-.box {
-  width: 30%;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+
+.transaction {
+  border-bottom: 1px solid #ccc; /* Separator for transactions */
+  padding: 10px 0; /* Padding for each transaction */
 }
+
+.transaction h3 {
+  margin: 0; /* Remove default margin */
+}
+
+.transaction p {
+  margin: 5px 0; /* Margin for paragraph */
+  color: #555; /* Text color */
+}
+
+.table-container {
+  margin-top: 20px; /* Space above the table */
+}
+
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+  width: 100%; /* Full width of the container */
+  border-collapse: collapse; /* Collapse borders */
 }
+
 th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
+  border: 1px solid #ccc; /* Border for table cells */
+  padding: 8px; /* Padding for table cells */
+  text-align: left; /* Align text to the left */
 }
+
 th {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2; /* Background color for header */
 }
+
+
 .input-group {
-  margin-bottom: 15px;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack items vertically */
+  margin-bottom: 15px; /* Space below the input group */
 }
+
+.input-group label {
+  display: flex; /* Use flexbox for alignment within the label */
+  align-items: center; /* Center items vertically within the label */
+  margin-bottom: 5px; /* Space between radio button labels */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.input-group input[type="radio"] {
+  margin-right: 10px; /* Space between radio button and label text */
+}
+
 .navbar {
   background-color: #f2f2f2; /* Cream color */
   display: flex; /* Use flexbox for alignment */
