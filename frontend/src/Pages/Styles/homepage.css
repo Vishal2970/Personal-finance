@@ -50,7 +50,7 @@ th {
 
 .input-group {
   display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Stack items vertically */
+  flex-direction: row; /* Stack items vertically */
   margin-bottom: 15px; /* Space below the input group */
 }
 

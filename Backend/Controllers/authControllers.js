@@ -151,12 +151,13 @@ const sendVerificationEmail = async (email, token, fullName) => {
     subject: "Verify Your Email",
     html: `<p>Hi ${fullName},</p>
            <p>Please verify your email by clicking on the link below:</p>
-           <a href="http://localhost:5000/api/auth/verify-email?token=${token}">Verify Email</a>`,
+           <a href="https://personal-finance-29bb.onrender.com/api/auth/verify-email?token=${token}">Verify Email</a>`,
   };
 
   try {
     await transporter.sendMail(mailOptions);
     writeLog(`Verification email sent to ${email}`);
+    console.log(`Verification email sent to ${email}`);    
   } catch (error) {
     writeLog(`Error sending verification email: ${error.message}`);
   }
