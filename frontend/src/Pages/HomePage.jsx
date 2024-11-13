@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Styles/homepage.css'; // Ensure your CSS file is correctly imported
+import { useNavigate } from 'react-router-dom';
 
 const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
@@ -9,6 +10,7 @@ const TransactionList = () => {
   const [transactionType, setTransactionType] = useState('Deposit');
   const [message, setMessage] = useState('');
   const token = sessionStorage.getItem("authToken");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!token) {
@@ -24,6 +26,7 @@ const TransactionList = () => {
 
   const fetchTransactions = async () => {
     try {
+      //const response = await fetch("http://localhost:5000/api/page/list_of_transaction", {
       const response = await fetch("https://personal-finance-29bb.onrender.com/api/page/list_of_transaction", {
         method: "GET",
         headers: {
@@ -46,6 +49,7 @@ const TransactionList = () => {
 
   const fetchTotalAmount = async () => {
     try {
+      //const response = await fetch("http://localhost:5000/api/page/addamount", {
       const response = await fetch("https://personal-finance-29bb.onrender.com/api/page/addamount", {
         method: "GET",
         headers: {
@@ -79,6 +83,7 @@ const TransactionList = () => {
     }
 
     try {
+      //const response = await fetch("http://localhost:5000/api/page/insertamount", {
       const response = await fetch("https://personal-finance-29bb.onrender.com/api/page/insertamount", {
         method: "POST",
         headers: {
@@ -111,17 +116,20 @@ const TransactionList = () => {
 
   const handleLogout = () => {
     sessionStorage.clear(); // Clear the session storage
-    window.location.href = "login.html"; // Redirect to login page
+    navigate("/")
   };
 
   const handleDeleteTransaction = async (transactionID) => {
     try {
-      const response = await fetch(`https://personal-finance-29bb.onrender.com/api/page/delete/${transactionID}`, {
+      const response = await fetch(`https://personal-finance-29bb.onrender.com/api/page/deleteOne`, {
+      //const response = await fetch(`http://localhost:5000/api/page/deleteOne`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           Authorization: token,
         },
+        
+        body: JSON.stringify({ id: transactionID })
       });
 
       if (!response.ok) {
