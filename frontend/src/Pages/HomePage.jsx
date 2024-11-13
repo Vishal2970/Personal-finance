@@ -24,7 +24,7 @@ const TransactionList = () => {
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/page/list_of_transaction", {
+      const response = await fetch("https://personal-finance-29bb.onrender.com/api/page/list_of_transaction", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const TransactionList = () => {
 
   const fetchTotalAmount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/page/addamount", {
+      const response = await fetch("https://personal-finance-29bb.onrender.com/api/page/addamount", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const TransactionList = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/page/insertamount", {
+      const response = await fetch("https://personal-finance-29bb.onrender.com/api/page/insertamount", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -116,7 +116,7 @@ const TransactionList = () => {
 
   const handleDeleteTransaction = async (transactionID) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/page/delete/${transactionID}`, {
+      const response = await fetch(`https://personal-finance-29bb.onrender.com/api/page/delete/${transactionID}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
