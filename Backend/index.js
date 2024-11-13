@@ -20,7 +20,10 @@ app.use(express.json());
 
 // Routes
 app.use("/", (req, res) => {
-  res.send("Hello Vishal");
+  writeLog(`Trying to hit this: ${req}`)
+  console.log(req);
+  
+  return res.send("Hello Vishal");
 });
 app.use("/api/auth", authRoute);
 app.use("/api/page", pageCheck);
