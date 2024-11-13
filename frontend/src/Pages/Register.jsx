@@ -81,7 +81,7 @@ const RegistrationPage = () => {
       <form id="registrationForm" onSubmit={handleSubmit}>
         <input
           type="text"
-          value={fullName}
+          value={fullName.toLowerCase()}
           onChange={(e) => setFullName(e.target.value)}
           placeholder="Full Name"
           minLength="3"
@@ -90,7 +90,7 @@ const RegistrationPage = () => {
         />
         <input
           type="text"
-          value={userName}
+          value={userName.toLowerCase()}
           onChange={(e) => setUserName(e.target.value)}
           placeholder="User  Name"
           minLength="3"
@@ -106,7 +106,7 @@ const RegistrationPage = () => {
         />
         <input
           type="email"
-          value={emailID}
+          value={emailID.toLowerCase()}
           onChange={(e) => setEmailID(e.target.value)}
           placeholder="Email ID"
           required

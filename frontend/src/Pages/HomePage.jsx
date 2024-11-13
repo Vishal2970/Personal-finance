@@ -18,7 +18,7 @@ const TransactionList = () => {
       window.location.href = "login.html"; // Redirect to login if not authorized
     } else {
       const userName = sessionStorage.getItem("userName");
-      document.getElementById("user-name").textContent = userName; // Set the username
+      document.getElementById("user-name").textContent = userName.toLocaleUpperCase(); // Set the username
       fetchTransactions();
       fetchTotalAmount();
     }

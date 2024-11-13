@@ -73,7 +73,7 @@ const LoginPage = () => {
       <form id="loginForm" onSubmit={handleSubmit}>
         <input
           type="text"
-          value={userName}
+          value={userName.toLowerCase()}
           onChange={(e) => setUserName(e.target.value)}
           placeholder="User  Name/Email ID"
           required
