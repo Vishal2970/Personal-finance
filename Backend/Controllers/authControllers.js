@@ -6,6 +6,7 @@ const writeLog = require("../Utility/logger");
 const mailSendingStatus = require("../Models/sendedEmail");
 
 const verifyEmail = async (req, res) => {
+  console.log("started verifying email");
   writeLog("started verifying email");
   try {
     // Extract token from query parameters
@@ -17,8 +18,10 @@ const verifyEmail = async (req, res) => {
       emailVerificationToken: token,
       emailVerificationTokenExpires: { $gt: Date.now() },
     });
+    const emailStatus=await mailSendingStatus.findOne({emailVerificationToken: token})
     if (userdata) {
       writeLog(`verified  ${userdata.fullName}`);
+      console.log(`verified  ${userdata.fullName}`);
     }
 
     // Check if the token is valid and not expired
@@ -30,18 +33,45 @@ const verifyEmail = async (req, res) => {
     userdata.isEmailVerified = true;
     userdata.emailVerificationToken = undefined; // Clear the token
     userdata.emailVerificationTokenExpires = undefined;
+    emailStatus.isMailVerified = true;
 
     // Save the changes to the user document
     const saved = await userdata.save();
-    if (saved) {
+    const saveEmailStatus=await emailStatus.save();
+    if (saved && saveEmailStatus) {
+      console.log(`verified  ${saved.fullName} email`);
       writeLog(`verified  ${saved.fullName} email`);
     }
     // Respond with success message
-    res.status(200).json({ message: "Email verified successfully!" });
+    return res.status(200).send(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Email Verified</title>
+      </head>
+      <body>
+        <h1>Email Verified Successfully!</h1>
+        <p>Mr./Mrs. ${userdata.fullName} Please login to access your account.</p>
+        <p><a href="https://personal-finance-vishal.netlify.app/">click here to login</a></p>
+      </body>
+      </html>
+    `);
   } catch (error) {
     writeLog(`Error verifying email:${error}`);
     //console.error("Error verifying email:", error);
-    res.status(500).json({ message: "Server error. Please try again later." });
+    //res.status(500).json({ message: "Server error. Please try again later." });
+    return res.status(500).send(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Email Not Verified</title>
+      </head>
+      <body>
+        <h1>Server error. Please try again later.</h1>
+        <p>Please Contact owner Vishal Agrahari</p>
+      </body>
+      </html>
+    `);
   }
 };
 
@@ -193,8 +223,11 @@ const sendVerificationEmail = async (email, token, fullName) => {
     writeLog(`Verification email sent to ${email}`);
     console.log(`Verification email sent to ${email}`);
     console.log(`Verification email sent status is : ${sendingStatus}`);
+    return true;
   } catch (error) {
     writeLog(`Error sending verification email: ${error.message}`);
+    console.log(`Error sending verification email: ${error.message}`);
+    return false;
   }
 };
 

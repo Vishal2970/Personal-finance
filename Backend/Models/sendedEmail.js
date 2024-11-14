@@ -38,6 +38,10 @@ const userSchema = new mongoose.Schema({
   isMailSended:{
     type:Boolean,
     default:false,
+  },
+  isMailVerified:{
+    type:Boolean,
+    default:false,
   }
 });
 
