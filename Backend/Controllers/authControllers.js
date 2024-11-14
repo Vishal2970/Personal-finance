@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const user = require("../Models/userModel");
 const writeLog = require("../Utility/logger");
+const mailSendingStatus = require("../Models/sendedEmail");
 
 const verifyEmail = async (req, res) => {
   writeLog("started verifying email");
@@ -102,7 +103,19 @@ const register = async (req, res) => {
     emailVerificationTokenExpires: Date.now() + TOKEN_EXPIRATION_TIME,
   });
 
+//writing status
+  const mailStatus = new mailSendingStatus({
+    fullName,
+    userName,
+    mobileNumber,
+    emailID,
+    password,
+    emailVerificationToken: verificationToken,
+    isMailSended:true,
+  });
+
   writeLog(`User  is going to be created`);
+  console.log(`started sending mail `);
   try {
     // Send verification email
     const sendingStatus = await sendVerificationEmail(
@@ -110,13 +123,22 @@ const register = async (req, res) => {
       verificationToken,
       fullName
     );
-    writeLog(`sendingStatus : ${sendingStatus}`);
+    console.log(`sendingStatus : ${sendingStatus}`);
+
+    if (sendingStatus) {
+      const statusSaved = await mailStatus.save();
+      console.log(`mail sended  : ${statusSaved}`);
+    }
     // if (sendingStatus) {
     const savedUser = await newUser.save();
     if (savedUser) {
       writeLog(`User  with ${savedUser.fullName} is saved`);
+      console.log(`User  with ${savedUser.fullName} is saved`);
+      
     }
     writeLog(`User  created successfully for email id: ${emailID}`);
+    console.log(`User  created successfully for email id: ${emailID}`);
+    
     return res.status(201).json({
       message: "User  created successfully. Please verify your email.",
     });
@@ -157,7 +179,7 @@ const sendVerificationEmail = async (email, token, fullName) => {
   try {
     await transporter.sendMail(mailOptions);
     writeLog(`Verification email sent to ${email}`);
-    console.log(`Verification email sent to ${email}`);    
+    console.log(`Verification email sent to ${email}`);
   } catch (error) {
     writeLog(`Error sending verification email: ${error.message}`);
   }
