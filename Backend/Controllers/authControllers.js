@@ -103,7 +103,7 @@ const register = async (req, res) => {
     emailVerificationTokenExpires: Date.now() + TOKEN_EXPIRATION_TIME,
   });
 
-//writing status
+  //writing status
   const mailStatus = new mailSendingStatus({
     fullName,
     userName,
@@ -111,7 +111,7 @@ const register = async (req, res) => {
     emailID,
     password,
     emailVerificationToken: verificationToken,
-    isMailSended:true,
+    isMailSended: true,
   });
 
   writeLog(`User  is going to be created`);
@@ -134,11 +134,10 @@ const register = async (req, res) => {
     if (savedUser) {
       writeLog(`User  with ${savedUser.fullName} is saved`);
       console.log(`User  with ${savedUser.fullName} is saved`);
-      
     }
     writeLog(`User  created successfully for email id: ${emailID}`);
     console.log(`User  created successfully for email id: ${emailID}`);
-    
+
     return res.status(201).json({
       message: "User  created successfully. Please verify your email.",
     });
@@ -156,9 +155,13 @@ const register = async (req, res) => {
 
 // Helper function to send the verification email
 const sendVerificationEmail = async (email, token, fullName) => {
-  writeLog(`Verification sending start for email ${email} and username ${fullName} with token ${token}`);
-  writeLog(`Credintials of gmail is ${process.env.GMAIL_USER} and key is ${process.env.GMAIL_PASS}`)
-
+  console.log(
+    `Verification sending start for email ${email} and username ${fullName} with token ${token}`
+  );
+  console.log(
+    `Credintials of gmail is ${process.env.GMAIL_USER} and key is ${process.env.GMAIL_PASS}`
+  );
+  console.log(`going to create transporter in function of sending mail `);
   const transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
@@ -166,7 +169,7 @@ const sendVerificationEmail = async (email, token, fullName) => {
       pass: process.env.GMAIL_PASS,
     },
   });
-
+  console.log(`going to create mailOptions in function of sending mail `);
   const mailOptions = {
     from: process.env.GMAIL_USER,
     to: email,
@@ -176,10 +179,13 @@ const sendVerificationEmail = async (email, token, fullName) => {
            <a href="https://personal-finance-29bb.onrender.com/api/auth/verify-email?token=${token}">Verify Email</a>`,
   };
 
+  console.log(`going to send in function of sending mail `);
+
   try {
-    await transporter.sendMail(mailOptions);
+    const sendingStatus=await transporter.sendMail(mailOptions);
     writeLog(`Verification email sent to ${email}`);
     console.log(`Verification email sent to ${email}`);
+    console.log(`Verification email sent status is : ${sendingStatus}`);
   } catch (error) {
     writeLog(`Error sending verification email: ${error.message}`);
   }
@@ -187,7 +193,8 @@ const sendVerificationEmail = async (email, token, fullName) => {
 
 const login = async (req, res) => {
   const { userInput, password } = req.body;
-  writeLog(`userInput ${userInput},password ${password} started login`);
+  console.log(`userInput ${userInput},password ${password} started login`);
+
   if (userInput === undefined) {
     return res.status(400).json({ message: "Please enter user Name or email" });
   }
