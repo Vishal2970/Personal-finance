@@ -1,0 +1,66 @@
+const accountSid = 'ACc6fe490ecd1182b552eba963bd8be2b8';
+const authToken = '[AuthToken]';
+const client = require('twilio')(accountSid, authToken);
+
+client.verify.v2.services("VAf83d4043d306572a28280a4ef3e07952")
+      .verifications
+      .create({to: '+917570882970', channel: 'sms'})
+      .then(verification => console.log(verification.sid));
+
+
+
+const accountSid = 'ACc6fe490ecd1182b552eba963bd8be2b8';
+const authToken = '20fd04110f9611ae83e8c9bc88545820';
+const client = require('twilio')(accountSid, authToken);
+
+client.verify.v2.services("VAf83d4043d306572a28280a4ef3e07952")
+      .verifications
+      .create({to: '+917570882970', channel: 'sms'})
+      .then(verification => console.log(verification.sid));
+
+
+Verify Service SID VAf83d4043d306572a28280a4ef3e07952
+
+
+
+
+
+
+
+
+
+const twilio = require("twilio");
+
+
+
+    // Example usage
+    sendSMS("+11234567890", "Hello from Node.js!");
+
+
+
+
+
+
+
+// Your account SID and auth token from twilio.com/console
+const accountSid = "ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; // Replace with your Account SID
+const authToken = "your_auth_token"; // Replace with your Auth Token
+
+const client = new twilio(accountSid, authToken);
+
+// Function to send SMS
+async function sendSMS(to, body) {
+  try {
+    const message = await client.messages.create({
+      body: body,
+      from: "+1234567890", // Replace with your Twilio phone number
+      to: to,
+    });
+    console.log(message.sid); // Log the message SID (unique identifier)
+  } catch (error) {
+    console.error("Error sending SMS:", error);
+  }
+}
+
+
+
