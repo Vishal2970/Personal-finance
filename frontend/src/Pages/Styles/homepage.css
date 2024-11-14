@@ -6,12 +6,16 @@ body {
 }
 
 .container {
-  max-width: 600px; /* Set a maximum width for the container */
-  margin: 40px auto 0; /* Center the container */
+  max-width: 800px; /* Set a maximum width for the container */
+  margin: 50px auto 0; /* Center the container */
   padding: 20px; /* Add padding inside the container */
   background-color: white; /* Background color for the container */
   border-radius: 5px; /* Rounded corners for the container */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.box {
+  margin-top: 5px; /* Space above the box */
 }
 
 .transaction {
@@ -29,7 +33,9 @@ body {
 }
 
 .table-container {
-  margin-top: 20px; /* Space above the table */
+  margin-top: 0; /* Space above the table */
+  max-height: 350px; /* Set a max height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 table {
@@ -46,7 +52,6 @@ th, td {
 th {
   background-color: #f2f2f2; /* Background color for header */
 }
-
 
 .input-group {
   display: flex; /* Use flexbox for layout */
@@ -66,22 +71,42 @@ th {
 }
 
 .navbar {
+  /*background-color: #e0e0e0;*/
   background-color: #f2f2f2; /* Cream color */
   display: flex; /* Use flexbox for alignment */
   justify-content: space-between; /* Space between items */
   align-items: center; /* Center items vertically */
   padding: 10px; /* Padding for navbar */
+  position: relative; /* Fixes the navbar at the top */
+  top: 0; /* Positions it at the top of the viewport */
+  width: 100%; /* Ensures it spans the full width of the viewport */
+  z-index: 1000; /* Ensures it stays above other content */
+  min-height: 20px; /* Ensure there's enough height for the button */
 }
 
 .btn {
-  background-color: #007bff; /* Button color */
-  color: white; /* Text color */
-  border: none; /* No border */
-  padding: 10px 20px; /* Padding for button */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 5px; /* Rounded corners */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    display: inline-block; /* Ensure it behaves like a button */
+    margin-left: auto; /* Push it to the right */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
 }
 
 .btn:hover {
   background-color: #0056b3; /* Darker blue on hover */
+}
+
+.btn:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a custom focus outline */
+}
+
+.btn:active {
+  background-color: #004085; /* Even darker blue when button is pressed */
 }

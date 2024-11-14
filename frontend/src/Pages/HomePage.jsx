@@ -1,27 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import './Styles/homepage.css'; // Ensure your CSS file is correctly imported
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "./Styles/homepage.css"; // Ensure your CSS file is correctly imported
+import { useNavigate } from "react-router-dom";
 
 const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
-  const [transactionName, setTransactionName] = useState('');
+  const [transactionName, setTransactionName] = useState("");
   const [amount, setAmount] = useState(0);
-  const [transactionType, setTransactionType] = useState('Deposit');
-  const [message, setMessage] = useState('');
+  const [transactionType, setTransactionType] = useState("Deposit");
+  const [message, setMessage] = useState("");
   const token = sessionStorage.getItem("authToken");
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!token) {
       alert("You are not authorized. Please log in.");
-      window.location.href = "login.html"; // Redirect to login if not authorized
+      navigate("/");
     } else {
       const userName = sessionStorage.getItem("userName");
-      document.getElementById("user-name").textContent = userName.toLocaleUpperCase(); // Set the username
+      document.getElementById("user-name").textContent =userName.toLocaleUpperCase();
       fetchTransactions();
       fetchTotalAmount();
     }
+    // eslint-disable-next-line
   }, [token]);
 
   const fetchTransactions = async () => {
@@ -77,7 +78,7 @@ const TransactionList = () => {
       nameOfTransaction: transactionName.trim(),
     };
 
-    if (!transactionData.nameOfTransaction || isNaN(transactionData.Amount)) {
+    if (!transactionData.nameOfTransaction || isNaN(transactionData.Amount)||transactionData.Amount===0) {
       alert("Please fill in all fields correctly");
       return;
     }
@@ -109,14 +110,14 @@ const TransactionList = () => {
   };
 
   const resetForm = () => {
-    setTransactionName('');
+    setTransactionName("");
     setAmount(0);
-    setTransactionType('Deposit');
+    // setTransactionType("Deposit");
   };
 
   const handleLogout = () => {
     sessionStorage.clear(); // Clear the session storage
-    navigate("/")
+    navigate("/");
   };
 
   const handleDeleteTransaction = async (transactionID) => {
@@ -135,8 +136,8 @@ const TransactionList = () => {
       if (!response.ok) {
         throw new Error("Failed to delete transaction.");
       }
-
-      fetchTransactions(); // Refresh the transaction list
+      fetchTransactions();
+      fetchTotalAmount();
     } catch (error) {
       console.error("Error:", error);
       setMessage(error.message);
@@ -159,8 +160,8 @@ const TransactionList = () => {
                   type="radio"
                   name="transactionType"
                   value="Deposit"
-                  checked={transactionType === 'Deposit'}
-                  onChange={() => setTransactionType('Deposit')}
+                  checked={transactionType === "Deposit"}
+                  onChange={() => setTransactionType("Deposit")}
                 />
                 Deposit
               </label>
@@ -169,8 +170,8 @@ const TransactionList = () => {
                   type="radio"
                   name="transactionType"
                   value="Withdrawal"
-                  checked={transactionType === 'Withdrawal'}
-                  onChange={() => setTransactionType('Withdrawal')}
+                  checked={transactionType === "Withdrawal"}
+                  onChange={() => setTransactionType("Withdrawal")}
                 />
                 Withdrawal
               </label>
@@ -191,6 +192,7 @@ const TransactionList = () => {
           </form>
           {message && <div id="transactionMessage">{message}</div>}
           <h3>Transactions</h3>
+          <div className="table-container">
           <table>
             <thead>
               <tr>
@@ -219,6 +221,7 @@ const TransactionList = () => {
               )}
             </tbody>
           </table>
+          </div>
           <h3>Total you have</h3>
           <div id="totalAmount">
             <p>{totalAmount}</p>
