@@ -123,7 +123,14 @@ const register = async (req, res) => {
       verificationToken,
       fullName
     );
-    console.log(`sendingStatus : ${sendingStatus}`);
+
+    writeLog(`sending status`);
+    
+    writeLog(sendingStatus);
+
+    console.log(`sending status`);
+    
+    console.log(sendingStatus);
 
     if (sendingStatus) {
       const statusSaved = await mailStatus.save();
