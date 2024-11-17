@@ -1,3 +1,0 @@
-fix the issue
-
-issue in same username exist register message
