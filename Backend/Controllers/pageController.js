@@ -1,5 +1,5 @@
 const amount = require("../Models/amountModel");
-const writeLog = require('../Utility/logger');
+const writeLog = require("../Utility/logger");
 //check for admin
 const pageCheck = async (req, res) => {
   return res.status(200).json({
@@ -22,7 +22,6 @@ const insertingAmount = async (req, res) => {
   let nameOfTransaction = req.body.nameOfTransaction;
   const Withdrawal = req.body.Withdrawal;
 
-
   // console.log("emailID ", emailID);
   if (Withdrawal) {
     console.log("check this Withdrawal in frontend");
@@ -34,6 +33,7 @@ const insertingAmount = async (req, res) => {
     nameOfTransaction = "Random Entry";
   }
   const inserting = new amount({
+    userName:req.user.userName,
     amountAdded,
     emailID,
     Withdrawal,
@@ -79,15 +79,22 @@ const addAmount = async (req, res) => {
 
 const listOfTransactionAdmin = async (req, res) => {
   const emailID = req.user.emailID;
-  writeLog(`Started searching list Of Transaction for ${emailID}`)
+  writeLog(`Started searching list Of Transaction for ${emailID}`);
   try {
     const amountList = req.user.isAdmin ? await amount.find().sort({ emailID: 1 }) : await amount.find({ emailID }).sort({ amountAdded: 1 });
     writeLog(`list Of Transaction : ${amountList}`);
-    if (amountList.length > 0)
-      return res.status(200).json({ message: "list fetched successfully", amountList });
-    else return res.status(200).json({ message: "No transactions found.", amountList });
+    if (amountList.length > 0) {
+      console.log("amountList", amountList);
+
+      return res
+        .status(200)
+        .json({ message: "list fetched successfully", amountList });
+    } else
+      return res
+        .status(200)
+        .json({ message: "No transactions found.", amountList });
   } catch (error) {
-    writeLog(`error in listOfTransactionAdmin ${error}`)
+    writeLog(`error in listOfTransactionAdmin ${error}`);
     //console.log(error);
   }
 };
@@ -95,9 +102,11 @@ const listOfTransactionAdmin = async (req, res) => {
 const deleteParticularEntry = async (req, res) => {
   const emailID = req.user.emailID;
   const id = req.body.id;
-  writeLog(`started to delete Particular Entry for ${emailID} with  id ${id}`)
+  writeLog(`started to delete Particular Entry for ${emailID} with  id ${id}`);
   try {
-    const deleted = req.user.isAdmin ? await amount.deleteOne({ _id: id }): await amount.deleteOne({ _id: id, emailID: emailID });
+    const deleted = req.user.isAdmin
+      ? await amount.deleteOne({ _id: id })
+      : await amount.deleteOne({ _id: id, emailID: emailID });
     if (deleted.deletedCount === 0) {
       writeLog(`Entry not found for ${emailID} and id :${id}`);
       return res.status(404).json({ message: "Entry not found" });
@@ -112,9 +121,11 @@ const deleteParticularEntry = async (req, res) => {
 
 const deleteAllforNormalOnly = async (req, res) => {
   const emailID = req.user.emailID;
-  writeLog(`started delete all data for ${emailID}`)
+  writeLog(`started delete all data for ${emailID}`);
   try {
-    const deleteAll = req.user.isAdmin ? res.status(404).json({ message: "Not Allowed to delete from here" }) : await amount.deleteMany({ emailID });
+    const deleteAll = req.user.isAdmin
+      ? res.status(404).json({ message: "Not Allowed to delete from here" })
+      : await amount.deleteMany({ emailID });
     writeLog(`deleted all ${deleteAll}`);
     //console.log(deleteAll);
     return res.status(200).json({ message: "All Entry deleted successfully" });

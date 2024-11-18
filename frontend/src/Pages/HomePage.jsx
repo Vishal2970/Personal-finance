@@ -10,6 +10,7 @@ const TransactionList = () => {
   const [transactionType, setTransactionType] = useState("Deposit");
   const [message, setMessage] = useState("");
   const token = sessionStorage.getItem("authToken");
+  const isAdmin = sessionStorage.getItem("isAdmin");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const TransactionList = () => {
       navigate("/");
     } else {
       const userName = sessionStorage.getItem("userName");
-      document.getElementById("user-name").textContent =userName.toLocaleUpperCase();
+      document.getElementById("user-name").textContent = userName.toLocaleUpperCase();
       fetchTransactions();
       fetchTotalAmount();
     }
@@ -78,7 +79,7 @@ const TransactionList = () => {
       nameOfTransaction: transactionName.trim(),
     };
 
-    if (!transactionData.nameOfTransaction || isNaN(transactionData.Amount)||transactionData.Amount===0) {
+    if (!transactionData.nameOfTransaction || isNaN(transactionData.Amount) || transactionData.Amount === 0) {
       alert("Please fill in all fields correctly");
       return;
     }
@@ -112,7 +113,6 @@ const TransactionList = () => {
   const resetForm = () => {
     setTransactionName("");
     setAmount(0);
-    // setTransactionType("Deposit");
   };
 
   const handleLogout = () => {
@@ -129,7 +129,6 @@ const TransactionList = () => {
           "Content-Type": "application/json",
           Authorization: token,
         },
-        
         body: JSON.stringify({ id: transactionID })
       });
 
@@ -146,14 +145,14 @@ const TransactionList = () => {
 
   return (
     <div>
-      <nav className="navbar" id="navbar">
+      <nav className=" navbar" id="navbar">
         <h1 id="user-name"></h1>
         <button className="btn" id="logout-btn" onClick={handleLogout}>Log Out</button>
       </nav>
       <div className="container">
         <div className="box">
           <h3>Add Transaction</h3>
-          <form id="transaction Form">
+          <form id="transactionForm">
             <div className="input-group">
               <label>
                 <input
@@ -193,34 +192,36 @@ const TransactionList = () => {
           {message && <div id="transactionMessage">{message}</div>}
           <h3>Transactions</h3>
           <div className="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Transaction Name</th>
-                <th>Amount Added</th>
-                <th>Date</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody id="transactionList">
-              {transactions.length > 0 ? (
-                transactions.map((transaction) => (
-                  <tr key={transaction._id}>
-                    <td>{transaction.nameOfTransaction}</td>
-                    <td>{transaction.amountAdded}</td>
-                    <td>{new Date(transaction.date).toLocaleDateString()}</td>
-                    <td>
-                      <button onClick={() => handleDeleteTransaction(transaction._id)} className="addTransaction">Delete</button>
-                    </td>
-                  </tr>
-                ))
-              ) : (
+            <table>
+              <thead>
                 <tr>
-                  <td colSpan="4">No transactions available.</td>
+                  {isAdmin && isAdmin === 'true' && <th>User Name</th>}
+                  <th>Transaction Name</th>
+                  <th>Amount Added</th>
+                  <th>Date</th>
+                  <th>Delete</th>
                 </tr>
-              )}
-            </tbody>
-          </table>
+              </thead>
+              <tbody id="transactionList">
+                {transactions.length > 0 ? (
+                  transactions.map((transaction) => (
+                    <tr key={transaction._id}>
+                      {isAdmin && isAdmin === 'true' && <td>{transaction.userName}</td>}
+                      <td>{transaction.nameOfTransaction}</td>
+                      <td>{transaction.amountAdded}</td>
+                      <td>{new Date(transaction.date).toLocaleDateString()}</td>
+                      <td>
+                        <button onClick={() => handleDeleteTransaction(transaction._id)} className="addTransaction">Delete</button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="5">No transactions available.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
           </div>
           <h3>Total you have</h3>
           <div id="totalAmount">

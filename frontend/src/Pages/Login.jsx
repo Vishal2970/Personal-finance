@@ -42,6 +42,7 @@ const LoginPage = () => {
         // Store the token in sessionStorage
         sessionStorage.setItem("authToken", data.token);
         sessionStorage.setItem("userName", data.name);
+        sessionStorage.setItem("isAdmin", data.isAdmin);
 
         // Redirect to homepage if login is successful
         setTimeout(() => {

@@ -264,6 +264,7 @@ const login = async (req, res) => {
         message: `Login successfull ${userExist.fullName}`,
         token: await userExist.generateToken(),
         name: userExist.fullName,
+        isAdmin:userExist.isAdmin,
       });
     } else {
       writeLog(`Invalid Password for ${userExist.emailID}`);

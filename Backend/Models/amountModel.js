@@ -6,6 +6,13 @@ const amountModel = new mongoose.Schema({
     required: true,
     minlength: 1,
   },
+  userName: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 3,
+    maxlength: 20,
+  },
   emailID: {
     type: String,
     require: true,
