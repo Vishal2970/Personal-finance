@@ -2,12 +2,12 @@ require("dotenv").config();
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const user = require("../Models/userModel");
-const writeLog = require("../Utility/logger");
+// const writeLog = require("../Utility/logger");
 const mailSendingStatus = require("../Models/sendedEmail");
 
 const verifyEmail = async (req, res) => {
   console.log("started verifying email");
-  writeLog("started verifying email");
+  // writeLog("started verifying email");
   try {
     // Extract token from query parameters
     const { token } = req.query;
@@ -20,7 +20,7 @@ const verifyEmail = async (req, res) => {
     });
     const emailStatus=await mailSendingStatus.findOne({emailVerificationToken: token})
     if (userdata) {
-      writeLog(`verified  ${userdata.fullName}`);
+      // writeLog(`verified  ${userdata.fullName}`);
       console.log(`verified  ${userdata.fullName}`);
     }
 
@@ -40,7 +40,7 @@ const verifyEmail = async (req, res) => {
     const saveEmailStatus=await emailStatus.save();
     if (saved && saveEmailStatus) {
       console.log(`verified  ${saved.fullName} email`);
-      writeLog(`verified  ${saved.fullName} email`);
+      // writeLog(`verified  ${saved.fullName} email`);
     }
     // Respond with success message
     return res.status(200).send(`
@@ -57,8 +57,8 @@ const verifyEmail = async (req, res) => {
       </html>
     `);
   } catch (error) {
-    writeLog(`Error verifying email:${error}`);
-    //console.error("Error verifying email:", error);
+    // writeLog(`Error verifying email:${error}`);
+    console.error("Error verifying email:", error);
     //res.status(500).json({ message: "Server error. Please try again later." });
     return res.status(500).send(`
       <!DOCTYPE html>
@@ -80,9 +80,7 @@ const TOKEN_EXPIRATION_TIME = 3600000; // 1 hour in milliseconds
 
 const register = async (req, res) => {
   const { fullName, userName, mobileNumber, emailID, password } = req.body;
-  writeLog(
-    `User  with ${fullName}, ${userName}, ${mobileNumber}, ${emailID} & password started registration`
-  );
+  console.log(`User  with ${fullName}, ${userName}, ${mobileNumber}, ${emailID} & password started registration`);
 
   // Validate userName and mobileNumber
   if (userName.length < 3 || userName.length > 20) {
@@ -90,18 +88,18 @@ const register = async (req, res) => {
       .status(400)
       .json({ message: "Username must be between 3 and 20 characters long." });
   }
-  writeLog(`Username length is appropriate`);
+  console.log(`Username length is appropriate`);
 
   if (!/^\d{10}$/.test(mobileNumber)) {
     return res
       .status(400)
       .json({ message: "Mobile number must be exactly 10 digits." });
   }
-  writeLog(`Mobile number length is appropriate`);
+  console.log(`Mobile number length is appropriate`);
 
   const userNameExist = await user.findOne({ userName });
   if (userNameExist) {
-    writeLog(`User  with this username already exists`);
+    console.log(`User  with this username already exists`);
     return res
       .status(400)
       .json({ message: "User  with this username already exists." });
@@ -110,9 +108,9 @@ const register = async (req, res) => {
   const userExist = await user.findOne({
     $or: [{ emailID }, { mobileNumber }],
   });
-  writeLog(`Checking if user with this mobile number or email exists`);
+  console.log(`Checking if user with this mobile number or email exists`);
   if (userExist) {
-    writeLog(`User  with this mobile number or email already exists`);
+    console.log(`User  with this mobile number or email already exists`);
     return res.status(400).json({
       message: "User  with this mobile number or email already exists.",
     });
@@ -144,7 +142,7 @@ const register = async (req, res) => {
     isMailSended: true,
   });
 
-  writeLog(`User  is going to be created`);
+  // writeLog(`User  is going to be created`);
   console.log(`started sending mail `);
   try {
     // Send verification email
@@ -154,9 +152,9 @@ const register = async (req, res) => {
       fullName
     );
 
-    writeLog(`sending status`);
+    // writeLog(`sending status`);
     
-    writeLog(sendingStatus);
+    // writeLog(sendingStatus);
 
     console.log(`sending status`);
     
@@ -169,10 +167,10 @@ const register = async (req, res) => {
     // if (sendingStatus) {
     const savedUser = await newUser.save();
     if (savedUser) {
-      writeLog(`User  with ${savedUser.fullName} is saved`);
+      // writeLog(`User  with ${savedUser.fullName} is saved`);
       console.log(`User  with ${savedUser.fullName} is saved`);
     }
-    writeLog(`User  created successfully for email id: ${emailID}`);
+    // writeLog(`User  created successfully for email id: ${emailID}`);
     console.log(`User  created successfully for email id: ${emailID}`);
 
     return res.status(201).json({
@@ -185,19 +183,15 @@ const register = async (req, res) => {
     // });
     // }
   } catch (error) {
-    writeLog(`Error in registration: ${error.message}`);
+    console.log(`Error in registration: ${error.message}`);
     return res.status(500).json({ message: "Internal server error." });
   }
 };
 
 // Helper function to send the verification email
 const sendVerificationEmail = async (email, token, fullName) => {
-  console.log(
-    `Verification sending start for email ${email} and username ${fullName} with token ${token}`
-  );
-  console.log(
-    `Credintials of gmail is ${process.env.GMAIL_USER} and key is ${process.env.GMAIL_PASS}`
-  );
+  console.log(`Verification sending start for email ${email} and username ${fullName} with token ${token}`);
+  console.log(`Credintials of gmail is ${process.env.GMAIL_USER} and key is ${process.env.GMAIL_PASS}`);
   console.log(`going to create transporter in function of sending mail `);
   const transporter = nodemailer.createTransport({
     service: "Gmail",
@@ -220,12 +214,12 @@ const sendVerificationEmail = async (email, token, fullName) => {
 
   try {
     const sendingStatus=await transporter.sendMail(mailOptions);
-    writeLog(`Verification email sent to ${email}`);
+    // writeLog(`Verification email sent to ${email}`);
     console.log(`Verification email sent to ${email}`);
     console.log(`Verification email sent status is : ${sendingStatus}`);
     return true;
   } catch (error) {
-    writeLog(`Error sending verification email: ${error.message}`);
+    // writeLog(`Error sending verification email: ${error.message}`);
     console.log(`Error sending verification email: ${error.message}`);
     return false;
   }
@@ -236,6 +230,8 @@ const login = async (req, res) => {
   console.log(`userInput ${userInput},password ${password} started login`);
 
   if (userInput === undefined) {
+    console.log("Please enter user Name or email" );
+    
     return res.status(400).json({ message: "Please enter user Name or email" });
   }
   const userExist = await user.findOne({
@@ -243,13 +239,14 @@ const login = async (req, res) => {
   });
 
   if (!userExist) {
-    writeLog(`user is not exist`);
+    // writeLog(`user is not exist`);
+    console.log(`user is not exist` );
     return res.status(400).json({
       message: "User with this email or mobile number not exists",
     });
   }
   if (!userExist.isEmailVerified) {
-    writeLog(`user with this email :${userExist.emailID} is not verified`);
+    console.log(`user with this email :${userExist.emailID} is not verified`);
     return res.status(401).json({
       message: "User with this email or mobile number is not verified",
     });
@@ -259,7 +256,7 @@ const login = async (req, res) => {
   const userdetails = await userExist.passwordMatch(password);
   try {
     if (userdetails) {
-      writeLog(`login successfull for ${userExist.emailID}`);
+      console.log(`login successfull for ${userExist.emailID}`);
       return res.status(200).json({
         message: `Login successfull ${userExist.fullName}`,
         token: await userExist.generateToken(),
@@ -267,11 +264,11 @@ const login = async (req, res) => {
         isAdmin:userExist.isAdmin,
       });
     } else {
-      writeLog(`Invalid Password for ${userExist.emailID}`);
+      console.log(`Invalid Password for ${userExist.emailID}`);
       return res.status(401).json({ message: "Invalid Password" });
     }
   } catch (error) {
-    writeLog(`Error in login ${error}`);
+    console.log(`Error in login ${error}`);
     return error;
   }
 };

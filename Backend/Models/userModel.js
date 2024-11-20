@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const writeLog = require('../Utility/logger');
+//const console.log = require('../Utility/logger');
 
 const userSchema = new mongoose.Schema({
   fullName: {
@@ -54,7 +54,7 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.generateToken = async function () {
-  writeLog(`started generating token for ${this.userName} and email id ${this.emailID}`);
+  console.log(`started generating token for ${this.userName} and email id ${this.emailID}`);
   try {
     const token = await new Promise((resolve, rejected) => {
       jwt.sign(
@@ -74,10 +74,10 @@ userSchema.methods.generateToken = async function () {
         }
       );
     });
-    writeLog(`token generated for ${this.userName} and email id ${this.emailID} token :${token}`);
+    console.log(`token generated for ${this.userName} and email id ${this.emailID} token :${token}`);
     return token;
   } catch (error) {
-    writeLog(`error in token generation ${error}`)
+    console.log(`error in token generation ${error}`)
     //console.log(error);
   }
 };

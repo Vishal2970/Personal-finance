@@ -1,11 +1,11 @@
-const writeLog = require("../Utility/logger");
+// const writeLog = require("../Utility/logger");
 
 const logInApis = (req, res, next) => {
   const { userInput, password } = req.body;
   const path = req.path;
   if (userInput !== undefined && password !== undefined) {
-    writeLog(`User Name ${userInput} and password ${password}`);
-    writeLog(`path of url ${path}`);
+    // writeLog(`User Name ${userInput} and password ${password}`);
+    // writeLog(`path of url ${path}`);
     console.log(userInput);
     console.log(password);
   }

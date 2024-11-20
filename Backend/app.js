@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const writeLog = require('./Utility/logger');
+// const writeLog = require('./Utility/logger');
 const app = express();
 const path = require('path');
 const cors = require("cors");
@@ -31,7 +31,7 @@ if (!PORT) {
 // Database Connection and Server Start
 ConnectDB().then(() => {
   app.listen(PORT, () => {
-    writeLog(`Connection successful at PORT ${PORT}`);
+    // writeLog(`Connection successful at PORT ${PORT}`);
     console.log(`Server is running at PORT: ${PORT}`);
   });
 }).catch(error => {
