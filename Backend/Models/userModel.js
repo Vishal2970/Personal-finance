@@ -155,9 +155,9 @@ async function deleteExpiredVerificationTokens() {
 //for every hours
 // cron.schedule('0 * * * *', deleteExpiredVerificationTokens);
 // for daily
-cron.schedule("0 0 * * *", deleteExpiredVerificationTokens); 
+// cron.schedule("0 0 * * *", deleteExpiredVerificationTokens); 
 // for testing every second
-// cron.schedule("* * * * *", deleteExpiredVerificationTokens);
+cron.schedule("* * * * *", deleteExpiredVerificationTokens);
 
 const user = new mongoose.model("userCredentials", userSchema);
 module.exports = user;
