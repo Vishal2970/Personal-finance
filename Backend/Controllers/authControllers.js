@@ -4,6 +4,7 @@ const crypto = require("crypto");
 const user = require("../Models/userModel");
 // const writeLog = require("../Utility/logger");
 const mailSendingStatus = require("../Models/sendedEmail");
+const deleteExpiredVerificationTokens = require("./cleanDB");
 
 const verifyEmail = async (req, res) => {
   console.log("started verifying email");
@@ -228,6 +229,7 @@ const sendVerificationEmail = async (email, token, fullName) => {
 const login = async (req, res) => {
   const { userInput, password } = req.body;
   console.log(`userInput ${userInput},password ${password} started login`);
+    await deleteExpiredVerificationTokens();
 
   if (userInput === undefined) {
     console.log("Please enter user Name or email" );
