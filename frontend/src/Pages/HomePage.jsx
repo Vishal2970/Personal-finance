@@ -9,6 +9,8 @@ const TransactionList = () => {
   const [amount, setAmount] = useState(0);
   const [transactionType, setTransactionType] = useState("Deposit");
   const [message, setMessage] = useState("");
+  const [sortBy, setSortBy] = useState(null); // State for sorting
+  const [sortOrder, setSortOrder] = useState("asc"); // State for sort order
   const token = sessionStorage.getItem("authToken");
   const isAdmin = sessionStorage.getItem("isAdmin");
   const navigate = useNavigate();
@@ -40,7 +42,6 @@ const TransactionList = () => {
       if (!response.ok) {
         throw new Error("Failed to fetch transactions.");
       }
-
       const data = await response.json();
       setTransactions(data.amountList || []);
     } catch (error) {
@@ -143,9 +144,24 @@ const TransactionList = () => {
     }
   };
 
+  const handleSort = (field) => {
+    const order = sortBy === field && sortOrder === "asc" ? "desc" : "asc";
+    setSortBy(field);
+    setSortOrder(order);
+    setTransactions((prevTransactions) => 
+      [...prevTransactions].sort((a, b) => {
+        if (order === "asc") {
+          return a[field] > b[field] ? 1 : -1;
+        } else {
+          return a[field] < b[field] ? 1 : -1;
+        }
+      })
+    );
+  };
+
   return (
     <div>
-      <nav className=" navbar" id="navbar">
+      <nav className="navbar" id="navbar">
         <h1 id="user-name"></h1>
         <button className="btn" id="logout-btn" onClick={handleLogout}>Log Out</button>
       </nav>
@@ -196,9 +212,9 @@ const TransactionList = () => {
               <thead>
                 <tr>
                   {isAdmin && isAdmin === 'true' && <th>User Name</th>}
-                  <th>Transaction Name</th>
-                  <th>Amount Added</th>
-                  <th>Date</th>
+                  <th onClick={() => handleSort('nameOfTransaction')}>Transaction Name</th>
+                  <th onClick={() => handleSort('amountAdded')}>Amount Added</th>
+                  <th onClick={() => handleSort('date')}>Date</th>
                   <th>Delete</th>
                 </tr>
               </thead>
